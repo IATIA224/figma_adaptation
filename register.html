@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Event Finder - Login</title>
-    <link rel="stylesheet" href="style/login_styles/login.css">
+    <title>Campus Event Finder - Register</title>
+    <link rel="stylesheet" href="style/login_styles/register.css">
     <link rel="stylesheet" href="style/login_styles/header.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <!-- Header -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-left">
@@ -22,7 +22,7 @@
             </div>
             <div class="nav-right">
                 <a href="login.html" class="nav-link-login">Login</a>
-                <button class="btn-signup" onclick="window.location.href='register.html'">Sign Up</button>
+                <button class="btn-signup" type="button" onclick="window.location.href='register.html'">Sign Up</button>
             </div>
         </div>
     </nav>
@@ -31,50 +31,50 @@
     <main class="main-content">
         <div class="login-card">
             <div class="login-card-inner">
-                <!-- Profile Icon -->
                 <div class="profile-icon">
                     <img src="image/profile.png" alt="Profile Icon">
                 </div>
-
-                <!-- Welcome Message -->
-                <h1 class="welcome-text">Welcome back Sign In Your Account</h1>
-
-                <!-- Login Form -->
-                <form id="loginForm" class="login-form">
+                <h2 class="welcome-text">Create Your Account</h2>
+                <form id="registerForm" class="login-form">
                     <div class="form-group">
                         <label for="studentId" class="form-label">Student ID</label>
                         <input 
                             type="text" 
                             id="studentId" 
                             class="form-input" 
-                            placeholder="Enter Student ID"
+                            placeholder="Enter Student iD"
                             required
                         >
                     </div>
-
+                    <div class="form-group">
+                        <label for="email" class="form-label">Enter Gmail</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            class="form-input" 
+                            placeholder="Gmail Account"
+                            required
+                        >
+                    </div>
                     <div class="form-group">
                         <label for="password" class="form-label">Password</label>
                         <input 
                             type="password" 
-                            id="password" 
-                            class="form-input" 
+                            id="password"
+                            class="form-input"
                             placeholder="Enter Password"
                             required
                         >
                     </div>
-
-                    <button type="submit" class="btn-login">Login</button>
+                    <button type="button" class="btn-login" onclick="window.location.href='login.html'">Register</button>
                 </form>
-
-                <!-- Sign Up Link -->
                 <div class="signup-link">
-                    <span class="signup-text">Don't have an account?</span>
-                    <a href="register.html" class="signup-link-text">Sign Up</a>
+                    <span class="signup-text">Already have an Account?</span>
+                    <a href="login.html" class="signup-link-text">Login Here</a>
                 </div>
             </div>
         </div>
     </main>
-
-    <script src="js/login_files/login.js"></script>
+    <script src="js/login_files/register.js"></script>
 </body>
 </html>

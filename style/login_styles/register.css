@@ -1,6 +1,4 @@
-/* ========================================
-   CSS Reset & Base Styles
-   ======================================== */
+/* Reset body margins and padding */
 * {
     margin: 0;
     padding: 0;
@@ -9,31 +7,28 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    min-height: 100vh;
-    background: linear-gradient(180deg, #6366F1 0%, #8B5CF6 100%);
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
 }
 
-/* ========================================
-   Main Content Area
-   ======================================== */
+/* Main Content Area */
 .main-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: calc(100vh - 114px);
     padding: 2rem;
+    background: linear-gradient(180deg, #6366F1 0%, #8B5CF6 100%);
 }
 
-/* ========================================
-   Login Card Styles
-   ======================================== */
+/* Register Card Styles */
 .login-card {
     background: #FFFFFF;
     border-radius: 78px;
     padding: 0;
-    width: 441px;
-    height: 517px;
+    width: 541px;
+    height: 667px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
@@ -41,58 +36,53 @@ body {
     justify-content: flex-start;
 }
 
-/* Add inner wrapper for spacing */
 .login-card-inner {
     width: 100%;
     height: 100%;
-    padding: 2rem 2.5rem;
+    padding: 3rem 3.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 
-/* ========================================
-   Profile Icon
-   ======================================== */
+/* Profile Icon - Fixed for perfect circle */
 .profile-icon {
-    width: 96px;
-    height: 96px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     background: #22D3EE;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1.2rem auto 1.2rem auto;
+    margin: 1rem auto 1rem auto;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .profile-icon img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%;
+    object-position: center;
 }
 
-/* ========================================
-   Welcome Text
-   ======================================== */
+/* Title */
 .welcome-text {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 700; /* bold only for heading */
     color: #1F2937;
     text-align: center;
-    margin-bottom: 1.2rem;
-    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     text-shadow: 0 4px 12px rgba(0,0,0,0.50); /* drop shadow, 25% opacity, black */
 }
 
-/* ========================================
-   Form Styles
-   ======================================== */
+/* Form */
 .login-form {
     width: 100%;
-    max-width: 400px;
+    max-width: 362px;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
@@ -106,9 +96,11 @@ body {
 }
 
 .form-label {
-    font-size: 0.9375rem;
-    font-weight: 400; /* normal */
+    font-size: 1rem;
     color: #1F2937;
+    margin-bottom: 0.2rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400; /* normal */
 }
 
 .form-input {
@@ -122,6 +114,7 @@ body {
     transition: all 0.3s ease;
     outline: none;
     box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 .form-input::placeholder {
@@ -138,9 +131,7 @@ body {
     border-color: #22D3EE;
 }
 
-/* ========================================
-   Login Button
-   ======================================== */
+/* Login Button */
 .btn-login {
     width: 171px;
     height: 37px;
@@ -152,12 +143,11 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 0.5rem;
+    margin: 2rem auto 0 auto;
     background-size: 200% 100%;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 .btn-login:hover {
@@ -167,39 +157,31 @@ body {
     background-position: right center;
 }
 
-.btn-login:active {
-    transform: translateY(0);
-}
-
-/* ========================================
-   Sign Up Link
-   ======================================== */
+/* Sign Up Link */
 .signup-link {
-    margin-top: 1.2rem;
+    margin-top: 2rem;
     text-align: center;
 }
 
 .signup-text {
     font-size: 0.9375rem;
     color: #000000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 .signup-link-text {
     color: #6366F1;
     text-decoration: none;
     font-weight: 400; /* normal */
-    margin-left: 0.25rem;
-    transition: color 0.3s ease;
+    margin-left: 0.3rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 .signup-link-text:hover {
-    color: #4F46E5;
     text-decoration: underline;
 }
 
-/* ========================================
-   Responsive Design
-   ======================================== */
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .login-card {
         width: 100%;
@@ -207,30 +189,23 @@ body {
         border-radius: 32px;
     }
     .login-card-inner {
-        padding: 1rem 0.5rem;
+        padding: 2rem 1rem;
     }
     .profile-icon {
-        width: 64px;
-        height: 64px;
-        margin-top: 1rem;
+        width: 80px;
+        height: 80px;
+        margin-top: 1.5rem;
+    }
+    .profile-icon img {
+        width: 56px;
+        height: 56px;
     }
     .btn-login {
         width: 100%;
         height: 44px;
     }
-}
-
-@media (max-width: 480px) {
-    .login-card {
-        border-radius: 24px;
-    }
-
-    .profile-icon {
-        width: 80px;
-        height: 80px;
-    }
-
-    .welcome-text {
-        font-size: 1rem;
+    .form-input {
+        width: 100%;
+        height: 56px;
     }
 }
