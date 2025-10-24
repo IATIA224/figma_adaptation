@@ -1,0 +1,223 @@
+html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow: auto;
+        /* Hide scrollbar for Firefox */
+        scrollbar-width: none;
+        /* Hide scrollbar for IE, Edge */
+        -ms-overflow-style: none;
+    }
+
+    /* Hide scrollbar for Chrome, Safari, Opera */
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Background gradient */
+    .events-bg {
+        min-height: 100vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(180deg, #6f7bff, #7a4ed6);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 48px 0;
+    }
+
+    /* Card container */
+    .events-card {
+        background: #e4e4e4;
+        border-radius: 44px;
+        padding: 48px 56px 56px;
+        width: 80vw;
+        max-width: 980px;
+        margin: 0 auto;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        text-align: left;
+    }
+
+    /* Title and subtitle */
+    .events-title {
+        font-size: 44px;
+        font-weight: 800;
+        margin-bottom: 8px;
+    }
+    .events-sub {
+        color: #222;
+        font-size: 16px;
+        margin-bottom: 32px;
+    }
+
+    /* Tabs */
+    .events-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 0;
+        margin-bottom: 38px;
+    }
+    .tab {
+        background: #fff;
+        border: none;
+        border-radius: 22px;
+        padding: 10px 0;
+        width: 50%;
+        font-size: 16px;
+        font-weight: 500;
+        color: #222;
+        cursor: pointer;
+        box-shadow: 0 2px 0 rgba(0,0,0,0.04);
+        transition: background 0.2s;
+    }
+    .tab.active {
+        background: #e4e4e4;
+        color: #222;
+    }
+
+    /* Empty state */
+    .events-empty {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 56px;
+    }
+    .empty-title {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 18px 0 8px;
+    }
+    .empty-desc {
+        color: #444;
+        margin-bottom: 22px;
+    }
+    .btn-browse {
+        background: linear-gradient(90deg,#6f7bff,#7a4ed6);
+        color: #fff;
+        padding: 10px 28px;
+        border-radius: 20px;
+        border: none;
+        font-weight: 700;
+        font-size: 15px;
+        cursor: pointer;
+        box-shadow: 0 6px 0 rgba(0,0,0,0.06);
+    }
+
+    /* Registered events list */
+    .events-list {
+        margin-top: 36px;
+    }
+    .event-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch; /* Make children stretch vertically */
+        background: #fff;
+        border-radius: 18px;
+        padding: 18px 28px;
+        margin-bottom: 22px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        position: relative;
+        min-height: 120px; /* Ensures enough height for button placement */
+    }
+    .event-left {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        flex: 1;
+        position: relative;
+    }
+    .event-thumb {
+        width: 70px;
+        height: 70px;
+        border-radius: 12px;
+        object-fit: cover;
+        margin-right: 10px;
+    }
+    .tag {
+        background: #e74c3c;
+        color: #fff;
+        font-size: 14px;
+        border-radius: 12px;
+        padding: 2px 12px;
+        font-weight: 600;
+        margin-bottom: 6px;
+        display: inline-block;
+    }
+    .event-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0 0 4px 0;
+    }
+    .event-meta {
+        color: #666;
+        font-size: 15px;
+        margin-top: 2px;
+        margin-bottom: 24px; /* Add space for button */
+    }
+    .event-right {
+        text-align: right;
+    }
+    .event-date {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+    .btn-details {
+        position: static;
+        margin-top: -12px; /* Previously 12px, now reduced by 50% */
+        background: linear-gradient(90deg,#6f7bff,#7a4ed6);
+        color: #fff;
+        padding: 8px 22px;
+        border-radius: 16px;
+        border: none;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        box-shadow: 0 4px 0 rgba(0,0,0,0.06);
+        display: inline-block;
+        align-self: flex-start; /* aligns button with the start of event-info */
+    }
+
+    /* Example event card markup (Now commented out to prevent CSS syntax errors) */
+    /*
+    <div class="event-row">
+    <div class="event-left">
+        <img src="image/smf.png" alt="Spring Music Festival" class="event-thumb">
+        <div>
+        <span class="tag">Music</span>
+        <h3 class="event-title">Spring Music Festival</h3>
+        <div class="event-meta">
+            <span>
+            <img src="image/pin.png" alt="Location" style="width:16px;height:16px;vertical-align:middle;margin-right:4px;">
+            Campus theatre
+            </span>
+        </div>
+        <button class="btn-details">View Details</button>
+        </div>
+    </div>
+    <div class="event-right">
+        <div class="event-date">
+        <strong>Mar 10, 2024</strong><br>
+        <span>2:00 PM - 5:00 PM</span>
+        </div>
+    </div>
+    </div>
+    */
+
+    /* Responsive */
+    @media (max-width: 900px) {
+        .events-card {
+            width: 98vw;
+            padding: 24px 8px 32px;
+        }
+        .event-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .event-right {
+            text-align: left;
+        }
+    }

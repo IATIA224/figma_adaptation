@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profile Settings</title>
+  <link rel="stylesheet" href="style/profile.css">
+</head>
+<body>
+  <div id="navbar-include"></div>
+
+  <main class="page-bg">
+    <section class="card">
+      <img src="image/prof.png" alt="avatar" class="avatar">
+      <h1 class="title">PROFILE SETTINGS</h1>
+      <p class="subtitle">Manage your account and preferences</p>
+
+      <div class="cards-row">
+        <section class="panel left">
+          <div class="panel-head">
+            <img src="image/users.png" alt="" class="panel-icon">
+            <h2>Personal<br/>Information</h2>
+          </div>
+
+          <form class="personal-form" autocomplete="off">
+            <label>Name
+              <input type="text" value="Karl Maverick Lemon">
+            </label>
+            <label>Student ID
+              <input type="text" value="22-00000">
+            </label>
+            <label>Academic Year
+              <input type="text" value="Senior">
+            </label>
+          </form>
+        </section>
+
+        <section class="panel right">
+          <div class="panel-head">
+            <img src="image/feedback.png" alt="" class="panel-icon">
+            <h2>Event<br/>Interest</h2>
+          </div>
+
+          <ul class="interest-list">
+            <li>
+              <label>
+                <input type="checkbox" checked>
+                <img src="image/mortarboard 1.png" alt="Academic" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;">
+                Academic Events
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox">
+                <img src="image/social-life 1.png" alt="Social" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;">
+                Social Events
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" checked>
+                <img src="image/sports 1.png" alt="Sports" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;">
+                Sports Events
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" checked>
+                <img src="image/career 1.png" alt="Career" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;">
+                Career Events
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" checked>
+                <img src="image/painting 1.png" alt="Arts & Culture" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;">
+                Arts & Culture
+              </label>
+            </li>
+          </ul>
+
+          <div class="save-wrap">
+            <button class="save-btn">Save Details</button>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // load navbar.html into the page (simple client-side include)
+    fetch('navbar.html').then(r => r.text()).then(html => {
+      document.getElementById('navbar-include').innerHTML = html;
+    });
+  </script>
+</body>
+</html>
