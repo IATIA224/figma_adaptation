@@ -53,3 +53,23 @@
   font-weight: 700;
   margin-right: 6px;
 }
+
+/* Uniform navbar font and corner radius override */
+
+
+.site-nav,
+.site-nav *,
+.site-nav .brand,
+.site-nav .brand-logo,
+.site-nav .nav-links,
+.site-nav .nav-links a,
+.site-nav .nav-actions,
+.site-nav .nav-actions .login,
+.site-nav .nav-actions .signup {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
+}
+
+.site-nav {
+    border-bottom-left-radius: 18px !important;
+    border-bottom-right-radius: 18px !important;
+}

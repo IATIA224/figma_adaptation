@@ -3,7 +3,7 @@ html, body {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        overflow: auto;
+        background: linear-gradient(180deg, #6f7bff, #7a4ed6); /* Gradient only here */
         /* Hide scrollbar for Firefox */
         scrollbar-width: none;
         /* Hide scrollbar for IE, Edge */
@@ -18,15 +18,12 @@ html, body {
 
     /* Background gradient */
     .events-bg {
-        min-height: 100vh;
-        width: 100vw;
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(180deg, #6f7bff, #7a4ed6);
+        margin-top: 18px; /* Space for navbar radius */
+        background: transparent; /* No background here */
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        padding: 48px 0;
+        padding-bottom: 48px;
     }
 
     /* Card container */
@@ -49,7 +46,7 @@ html, body {
     }
     .events-sub {
         color: #222;
-        font-size: 16px;
+        font-size: 16px;    
         margin-bottom: 32px;
     }
 

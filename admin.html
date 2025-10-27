@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Campus Events Admin</title>
+    <link rel="stylesheet" href="style/admin.css">
+    <link rel="stylesheet" href="style/login_styles/navbar.css">
+    <!-- Material Design Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+</head>
+<body>
+    <!-- shared navbar include -->
+    <div id="navbar-include"></div>
+
+    <main class="admin-bg">
+        <!-- Dashboard stats -->
+        <section class="admin-stats">
+            <div class="stat-card">
+                <span class="mdi mdi-calendar-outline stat-icon"></span>
+                <div class="stat-label">Total Events</div>
+                <div class="stat-value">16</div>
+            </div>
+            <div class="stat-card">
+                <span class="mdi mdi-checkbox-marked-circle-outline stat-icon" style="color:#2ecc40"></span>
+                <div class="stat-label">Active Events</div>
+                <div class="stat-value">6</div>
+            </div>
+            <div class="stat-card">
+                <span class="mdi mdi-calendar-clock stat-icon" style="color:#3b5be6"></span>
+                <div class="stat-label">Upcoming</div>
+                <div class="stat-value">8</div>
+            </div>
+            <div class="stat-card">
+                <span class="mdi mdi-account-group stat-icon" style="color:#e74c3c"></span>
+                <div class="stat-label">Total Attendees</div>
+                <div class="stat-value">569/999</div>
+            </div>
+        </section>
+
+        <!-- Events admin panel -->
+        <section class="admin-panel">
+            <div class="panel-header">
+                <h2>Campus Events Admin</h2>
+                <button class="btn-create" id="open-create-event-popup">+ Create Event</button>
+            </div>
+            <div class="panel-controls">
+                <input type="text" class="search-input" placeholder="Search events...">
+                <select class="filter-select">
+                    <option>All Categories</option>
+                    <option>Music</option>
+                    <option>Sports</option>
+                    <option>Career</option>
+                </select>
+            </div>
+            <div class="events-list">
+                <!-- Repeat for each event -->
+                <div class="event-admin-card">
+                    <img src="image/smf.png" alt="Spring Music Festival" class="event-thumb">
+                    <div class="event-admin-info">
+                        <div class="event-admin-title-row">
+                            <span class="event-admin-title">Spring Music Festival</span>
+                            <span class="tag-admin">Music</span>
+                        </div>
+                        <div class="event-admin-desc">
+                            Join us for an incredible night of live music featuring local and touring artists. Experience diverse genres from indie rock to electronic music.
+                        </div>
+                        <div class="event-admin-meta">
+                            <span class="meta-item">
+                                <span class="mdi mdi-map-marker"></span> Campus theatre
+                            </span>
+                            <span class="meta-item">
+                                <span class="mdi mdi-account-multiple"></span> 200/500
+                            </span>
+                            <span class="meta-item">
+                                <span class="mdi mdi-calendar"></span> Apr 24, 2025 2:00 PM - 5:00 PM
+                            </span>
+                        </div>
+                    </div>
+                    <div class="event-admin-actions">
+                        <button class="btn-edit">Edit</button>
+                        <button class="btn-delete">Delete</button>
+                        <span class="mdi mdi-dots-vertical"></span>
+                    </div>
+                </div>
+                <!-- Repeat above .event-admin-card for each event -->
+                <div class="event-admin-card">
+                    <img src="image/smf.png" alt="Spring Music Festival" class="event-thumb">
+                    <div class="event-admin-info">
+                        <div class="event-admin-title-row">
+                            <span class="event-admin-title">Spring Music Festival</span>
+                            <span class="tag-admin">Music</span>
+                        </div>
+                        <div class="event-admin-desc">
+                            Join us for an incredible night of live music featuring local and touring artists. Experience diverse genres from indie rock to electronic music.
+                        </div>
+                        <div class="event-admin-meta">
+                            <span class="meta-item">
+                                <span class="mdi mdi-map-marker"></span> Campus theatre
+                            </span>
+                            <span class="meta-item">
+                                <span class="mdi mdi-account-multiple"></span> 200/500
+                            </span>
+                            <span class="meta-item">
+                                <span class="mdi mdi-calendar"></span> Apr 24, 2025 2:00 PM - 5:00 PM
+                            </span>
+                        </div>
+                    </div>
+                    <div class="event-admin-actions">
+                        <button class="btn-edit">Edit</button>
+                        <button class="btn-delete">Delete</button>
+                        <span class="mdi mdi-dots-vertical"></span>
+                    </div>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="admin-activity">
+            <h3>Recent Activity</h3>
+            <div class="activity-list">
+                <div class="activity-item activity-new">
+                    <span class="activity-dot activity-dot-new"></span>
+                    <span class="activity-text">New Event Created</span>
+                    <span class="activity-time">2 min ago</span>
+                </div>
+                <div class="activity-item activity-approved">
+                    <span class="activity-dot activity-dot-approved"></span>
+                    <span class="activity-text">Event Approved</span>
+                    <span class="activity-time">1 hour ago</span>
+                </div>
+                <div class="activity-item activity-updated">
+                    <span class="activity-dot activity-dot-updated"></span>
+                    <span class="activity-text">Event updated</span>
+                    <span class="activity-time">1 hour ago</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Create Event Popup -->
+        <div id="create-event-popup" class="popup-overlay" style="display:none;">
+          <div class="popup-card">
+            <h2>Create Event</h2>
+            <form id="create-event-form">
+              <div class="form-row">
+                <input type="text" placeholder="Enter Event Title" required>
+              </div>
+              <div class="form-row">
+                <input type="text" placeholder="dd/mm/yyyy" required>
+                <input type="text" placeholder="Select Time" required>
+              </div>
+              <div class="form-row">
+                <input type="text" placeholder="Event Location" required>
+                <select required>
+                  <option>Select Category</option>
+                  <option>Music</option>
+                  <option>Sports</option>
+                  <option>Career</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <input type="number" placeholder="Max Attendees" required>
+                <select required>
+                  <option>Upcoming</option>
+                  <option>Ongoing</option>
+                  <option>Completed</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <div class="upload-box">
+                  <span>Click to upload or drag and drop</span>
+                </div>
+              </div>
+              <div class="form-row">
+                <textarea placeholder="Event Description..." required></textarea>
+              </div>
+              <div class="form-row form-actions">
+                <button type="button" id="cancel-popup">Cancel</button>
+                <button type="submit" class="btn-create-event">Create Event</button>
+              </div>
+            </form>
+          </div>
+        </div>
+    </main>
+
+    <!-- load shared navbar -->
+    <script>
+        fetch('navbar.html').then(r => r.text()).then(html => {
+            document.getElementById('navbar-include').innerHTML = html;
+        });
+    </script>
+    <script>
+  // Show popup when "+ Create Event" is clicked
+  document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('create-event-popup');
+    const openBtn = document.querySelector('.btn-create');
+    const cancelBtn = document.getElementById('cancel-popup');
+    const form = document.getElementById('create-event-form');
+
+    openBtn.addEventListener('click', () => {
+      popup.style.display = 'flex';
+    });
+
+    cancelBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Handle event creation logic here
+      popup.style.display = 'none';
+      alert('Event created!');
+    });
+  });
+</script>
+</body>
+</html>
