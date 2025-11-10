@@ -163,3 +163,17 @@ body::-webkit-scrollbar {
     margin-top: 18px; /* Match navbar border-radius for seamless blend */
     background: linear-gradient(180deg, var(--bg-start), var(--bg-end)); /* Match page background */
 }
+
+.tag {
+    display: inline-block;
+    background: #F3393C; /* Bright orange */
+    color: #111;         /* Black text */
+    padding: 6px 18px 6px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 83px;
+    min-width: 0;
+    box-shadow: none;
+}

@@ -36,6 +36,7 @@ html, body {
         margin: 0 auto;
         box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         text-align: left;
+        margin-top: 3rem;
     }
 
     /* Title and subtitle */
@@ -56,6 +57,9 @@ html, body {
         justify-content: center;
         gap: 0;
         margin-bottom: 38px;
+        background: #e4e4e4;
+        border-radius: 22px;
+        padding: 6px;
     }
     .tab {
         background: #fff;
@@ -67,12 +71,14 @@ html, body {
         font-weight: 500;
         color: #222;
         cursor: pointer;
-        box-shadow: 0 2px 0 rgba(0,0,0,0.04);
+        box-shadow: none;
         transition: background 0.2s;
+        border: 2px solid transparent;
     }
     .tab.active {
-        background: #e4e4e4;
+        background: #ccc;
         color: #222;
+        border: 2px solid #fff;
     }
 
     /* Empty state */

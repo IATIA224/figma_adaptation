@@ -49,8 +49,8 @@ body {
     background: #FFFFFF;
     border-radius: 78px;
     padding: 0;
-    width: 441px;
-    height: 517px;
+    width: 541px;
+    height: 617px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
@@ -169,7 +169,7 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 0.5rem;
+    margin-top: 2rem;
     background-size: 200% 100%;
     display: block;
     margin-left: auto;
@@ -192,7 +192,7 @@ body {
    Sign Up Link
    ======================================== */
 .signup-link {
-    margin-top: 1.2rem;
+    margin-top: 3rem;
     text-align: center;
 }
 
