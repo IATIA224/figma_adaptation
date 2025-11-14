@@ -186,5 +186,18 @@
             document.getElementById('navbar-include').innerHTML = html;
         });
     </script>
+    <script>
+        document.querySelectorAll('.btn-register').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (btn.classList.contains('registered')) {
+                    btn.classList.remove('registered');
+                    btn.textContent = 'Register';
+                } else {
+                    btn.classList.add('registered');
+                    btn.textContent = 'Registered';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
