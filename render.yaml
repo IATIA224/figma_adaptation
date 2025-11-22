@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: figma-adaptation
+    env: static
+    branch: main
+    buildCommand: ""
+    staticPublishPath: "."
+    plan: free
+    autoDeploy: true
