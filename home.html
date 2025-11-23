@@ -19,13 +19,25 @@
             <div class="controls">
                 <div class="search">
                     <input type="search" placeholder="Search Events..." />
-                    <button aria-label="search">🔍</button>
+                    <button aria-label="search">
+                        <img src="image/search.png" alt="Search" width="20" height="20">
+                    </button>
                 </div>
                 <select class="filter">
                     <option>All Categories</option>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                    <option>Option 4</option>
+                    <option>Option 5</option>
                 </select>
                 <select class="filter">
                     <option>All Dates</option>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                    <option>Option 4</option>
+                    <option>Option 5</option>
                 </select>
             </div>
         </section>
@@ -104,6 +116,8 @@
                         <button class="btn-register">Register</button>
                     </div>
                 </article>
+
+                
 
                 <article class="card">
                     <div class="card-media">
@@ -186,18 +200,188 @@
             document.getElementById('navbar-include').innerHTML = html;
         });
     </script>
+
+    <!-- DETAILS MODAL + improved delegated click handler -->
+    <style>
+      /* inline modal styles - tiny and safe */
+      #detail-modal.hidden { display: none; }
+      #detail-modal {
+        position: fixed; inset: 0;
+        display: flex; align-items: center; justify-content: center;
+        background: rgba(0,0,0,0.45); z-index: 9999;
+      }
+      .modal-card {
+        background: #fff;
+        border-radius: 18px;
+        width: 96%; max-width: 680px;
+        padding: 28px 28px 20px 28px;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.22);
+        display: flex; gap: 22px; align-items: flex-start;
+        flex-wrap: wrap;
+      }
+      .modal-card img {
+        width: 210px; height: 140px; object-fit: cover;
+        border-radius: 10px; flex-shrink: 0;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      }
+      .modal-body { flex: 1; min-width: 220px; }
+      .modal-tag {
+        display: inline-block; background: #ff7b7b; color: #fff;
+        padding: 4px 14px; border-radius: 999px;
+        font-size: 0.95rem; font-weight: 700; margin-bottom: 8px;
+      }
+      .modal-title {
+        font-size: 1.25rem; margin: 0 0 6px 0; font-weight: 700; color: #1a1a1a;
+      }
+      .modal-desc {
+        color: #444; font-size: 1rem; margin-bottom: 10px;
+      }
+      .modal-meta {
+        color: #333; font-size: 0.98rem; margin: 10px 0 0 0;
+        display: grid; grid-template-columns: 1fr 1fr; gap: 6px 18px;
+      }
+      .modal-meta div strong {
+        font-weight: 600; color: #222;
+      }
+      .modal-long-desc {
+        margin-top: 16px; color: #555; font-size: 0.98rem; line-height: 1.5;
+      }
+      .modal-actions {
+        margin-top: 18px; display: flex; justify-content: flex-end;
+      }
+      .modal-close {
+        background: #eee; border: none; padding: 9px 22px;
+        border-radius: 8px; cursor: pointer; font-size: 1rem;
+        font-weight: 500; color: #222; transition: background 0.2s;
+      }
+      .modal-close:hover { background: #e0e0e0; }
+      @media (max-width: 700px) {
+        .modal-card { flex-direction: column; align-items: stretch; padding: 16px 6px 12px 6px; }
+        .modal-card img { width: 100%; height: 120px; margin-bottom: 10px; }
+      }
+    </style>
+
+    <div id="detail-modal" class="hidden" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true">
+        <img class="modal-img" src="" alt="">
+        <div class="modal-body">
+          <div class="modal-tag"></div>
+          <h3 class="modal-title"></h3>
+          <div class="modal-desc"></div>
+          <div class="modal-meta">
+            <div><strong>Date:</strong> <span class="modal-date"></span></div>
+            <div><strong>Time:</strong> <span class="modal-time"></span></div>
+            <div><strong>Host:</strong> <span class="modal-host"></span></div>
+            <div><strong>Seats left:</strong> <span class="modal-seats"></span></div>
+            <div style="grid-column:1/3;"><strong>Location:</strong> <span class="modal-meta-location"></span></div>
+            <div style="grid-column:1/3;"><strong>Attendees:</strong> <span class="modal-meta-attendees"></span></div>
+          </div>
+          <div class="modal-long-desc"></div>
+          <div class="modal-actions">
+            <button class="modal-close" id="modal-close">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script>
-        document.querySelectorAll('.btn-register').forEach(btn => {
-            btn.addEventListener('click', function() {
-                if (btn.classList.contains('registered')) {
-                    btn.classList.remove('registered');
-                    btn.textContent = 'Register';
-                } else {
-                    btn.classList.add('registered');
-                    btn.textContent = 'Registered';
-                }
-            });
-        });
+      const grid = document.querySelector('.cards-grid');
+      const modal = document.getElementById('detail-modal');
+      const closeBtn = document.getElementById('modal-close');
+
+      // Helper functions for random details
+      function randomDate() {
+        const now = new Date();
+        const days = Math.floor(Math.random() * 30) + 1;
+        const date = new Date(now.getTime() + days * 24 * 60 * 60 * 1000);
+        return date.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+      }
+      function randomTime() {
+        const hour = Math.floor(Math.random() * 8) + 16; // 16-23
+        const min = Math.random() > 0.5 ? '00' : '30';
+        return `${hour}:${min}`;
+      }
+      function randomHost() {
+        const hosts = ['Student Union', 'Music Society', 'Film Club', 'Art Collective', 'Engineering Guild', 'Campus Life', 'Local Promoters'];
+        return hosts[Math.floor(Math.random() * hosts.length)];
+      }
+      function randomLongDesc() {
+        const extras = [
+          'Bring friends and enjoy a relaxed vibe with on-site food trucks.',
+          'Limited free giveaways for early arrivals.',
+          'All ages welcome — student ID at entrance gets a discount.',
+          'Live Q&A after the event with performers.',
+          'Indoor event; seating first-come-first-serve.',
+          'Please bring a valid student ID for entry.'
+        ];
+        return extras[Math.floor(Math.random() * extras.length)] + ' ' + extras[Math.floor(Math.random() * extras.length)];
+      }
+
+      function openModal(card) {
+        if (!card) return;
+        const title = card.querySelector('.card-title')?.textContent?.trim() || 'Event';
+        const desc = card.querySelector('.card-desc')?.textContent?.trim() || '';
+        const tag = card.querySelector('.tag')?.textContent?.trim() || '';
+        const img = card.querySelector('.card-media img')?.src || '';
+        const location = card.querySelector('.meta .meta-item:nth-child(1)')?.textContent?.trim() || '';
+        const attendees = card.querySelector('.meta .meta-item:nth-child(2)')?.textContent?.trim() || '';
+        // Parse attendees "200/500" if present
+        let seatsLeft = '';
+        const match = attendees.match(/(\d+)\s*\/\s*(\d+)/);
+        if (match) {
+          const current = parseInt(match[1],10);
+          const total = parseInt(match[2],10);
+          seatsLeft = Math.max(0, total - current);
+        } else {
+          seatsLeft = Math.floor(Math.random() * 120) + 5;
+        }
+
+        modal.querySelector('.modal-title').textContent = title;
+        modal.querySelector('.modal-desc').textContent = desc;
+        modal.querySelector('.modal-tag').textContent = tag;
+        modal.querySelector('.modal-img').src = img;
+        modal.querySelector('.modal-img').alt = title;
+        modal.querySelector('.modal-meta-location').textContent = location;
+        modal.querySelector('.modal-meta-attendees').textContent = attendees;
+        modal.querySelector('.modal-date').textContent = randomDate();
+        modal.querySelector('.modal-time').textContent = randomTime();
+        modal.querySelector('.modal-host').textContent = randomHost();
+        modal.querySelector('.modal-seats').textContent = seatsLeft;
+        modal.querySelector('.modal-long-desc').textContent = randomLongDesc();
+
+        modal.classList.remove('hidden');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeModal() {
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+      grid && grid.addEventListener('click', (e) => {
+        const registerBtn = e.target.closest('button.btn-register');
+        if (registerBtn) {
+          registerBtn.classList.toggle('registered');
+          registerBtn.textContent = registerBtn.classList.contains('registered') ? 'Registered' : 'Register';
+          return;
+        }
+        const card = e.target.closest('.card');
+        if (!card) return;
+        // Only treat clicks as "view details" when clicking the image, title, or card body
+        const isViewClick = Boolean(
+          e.target.closest('.card-media') ||
+          e.target.closest('.card-title') ||
+          e.target.closest('.card-desc')
+        );
+        if (!isViewClick) return;
+        openModal(card);
+      });
     </script>
-</body>
+  </body>
 </html>

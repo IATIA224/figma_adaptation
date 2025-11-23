@@ -56,11 +56,11 @@ body {
     box-shadow: 0 8px 32px rgba(44, 62, 80, 0.12) !important;
 }
 
-/* Stat card colored borders - move to left side */
-.stat-card:nth-child(1) { border-top: none; border-left: 6px solid #f7e37b; }
-.stat-card:nth-child(2) { border-top: none; border-left: 6px solid #6fdc7b; }
-.stat-card:nth-child(3) { border-top: none; border-left: 6px solid #6f7bff; }
-.stat-card:nth-child(4) { border-top: none; border-left: 6px solid #e74c3c; }
+/* Stat card colored borders - use requested colors */
+.stat-card:nth-child(1) { border-left: 6px solid #C4C922; } /* yellow */
+.stat-card:nth-child(2) { border-left: 6px solid #2AC922; } /* green */
+.stat-card:nth-child(3) { border-left: 6px solid #2225C9; } /* blue */
+.stat-card:nth-child(4) { border-left: 6px solid #C92222; } /* red */
 
 .stat-card {
     padding: 24px 38px 18px 38px;
@@ -261,51 +261,80 @@ body {
     font-weight: 700;
     margin-bottom: 18px;
 }
+
+/* Recent Activity — Figma style */
 .activity-list {
     display: flex;
     flex-direction: column;
     gap: 14px;
 }
+
+/* Each item becomes a full-width bar with left content + right timestamp */
 .activity-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 10px 18px;
+    justify-content: space-between;
+    padding: 12px 22px;
     border-radius: 12px;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
+    width: 100%;
+    min-height: 52px;
+    box-sizing: border-box;
 }
-.activity-dot {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    display: inline-block;
-}
-.activity-dot-new {
-    background: #6f7bff;
-}
-.activity-dot-approved {
-    background: #6fdc7b;
-}
-.activity-dot-updated {
-    background: #f7e37b;
-}
-.activity-new {
-    background: #eaeafd;
-}
-.activity-approved {
-    background: #eafde9;
-}
-.activity-updated {
-    background: #fdf7e9;
-}
-.activity-text {
+
+/* left side groups dot + text */
+.activity-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
     flex: 1;
 }
-.activity-time {
-    color: #888;
-    font-size: 13px;
+
+/* dot increased by 50% (18 -> 27) */
+.activity-dot {
+    width: 27px;   /* 18 * 1.5 */
+    height: 27px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center; /* center icon */
 }
+
+/* icon inside dot */
+.activity-dot .mdi {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1;
+    display: inline-block;
+}
+
+/* full-bleed soft backgrounds at 25% alpha (use the colours you provided) */
+.activity-new     { background: rgba(34, 37, 201, 0.25); }  /* now blue @25% */
+.activity-approved{ background: rgba(42,201,34,0.25);  }  /* #2AC922 25% */
+.activity-updated { background: rgba(196, 201, 34, 0.25); } /* now yellow @25% */
+.activity-danger  { background: rgba(201,34,34,0.25);  }  /* #C92222 25% - optional */
+
+.activity-dot-new      { background: #2225C9; } /* blue */
+.activity-dot-approved { background: #2AC922; } /* green */
+.activity-dot-updated  { background: #C4C922; } /* yellow */
+
+/* left text */
+.activity-text { color: #111; }
+
+/* right timestamp */
+.activity-time {
+    color: #7f7f7f;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    margin-left: 18px;
+}
+
+/* ensure the item fills the available width inside the activity container */
+.admin-activity .activity-list { width: 100%; }
 
 /* Popup overlay */
 .popup-overlay {
@@ -484,6 +513,29 @@ body {
     padding: 0;
     margin: 0;
     overflow: hidden;
+}
+
+/* make the Max Attendees input wider and responsive */
+.attendees-input {
+  /* prefer a fixed-ish width inside two-column rows but allow shrink/grow */
+  flex: 0 0 220px;      /* base width (increase as needed) */
+  max-width: 320px;     /* limit growth on very large screens */
+  min-width: 140px;     /* keep usable on small screens */
+}
+
+/* if it's inside .input-icon wrapper, keep the icon positioned */
+.input-icon.attendees {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* responsive: stack full width on narrow screens */
+@media (max-width: 700px) {
+  .form-row .attendees-input {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 700px) {
