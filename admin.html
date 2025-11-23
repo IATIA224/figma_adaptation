@@ -138,88 +138,50 @@
             </div>
         </section>
 
-        <!-- Create Event Popup -->
-        <div id="create-event-popup" class="popup-overlay" style="display:none;">
-          <div class="popup-card">
-            <h2>Create Event</h2>
-            <form id="create-event-form">
-              <div class="form-row">
-                <input type="text" placeholder="Enter Event Title" required>
-              </div>
-              <div class="form-row">
-                <div class="input-icon">
-                  <input type="text" placeholder="dd/mm/yyyy" required>
-                  <span class="mdi mdi-calendar"></span>
-                </div>
-                <div class="input-icon">
-                  <input type="text" placeholder="Select Time" required>
-                  <span class="mdi mdi-clock"></span>
-                </div>
-              </div>
-              <div class="form-row">
-                <input type="text" placeholder="Event Location" required>
-                <select required>
-                  <option>Select Category</option>
-                  <option>Music</option>
-                  <option>Sports</option>
-                  <option>Career</option>
-                </select>
-              </div>
-              <div class="form-row">
-                <input type="number" placeholder="Max Attendees" required>
-                <select required>
-                  <option>Upcoming</option>
-                  <option>Ongoing</option>
-                  <option>Completed</option>
-                </select>
-              </div>
-              <div class="form-row">
-                <div class="upload-box">
-                  <img src="image/upload.png" alt="Upload" class="upload-icon">
-                  <span>Click to upload or drag and drop</span>
-                </div>
-              </div>
-              <div class="form-row">
-                <textarea placeholder="Event Description..." required></textarea>
-              </div>
-              <div class="form-row form-actions">
-                <button type="button" id="cancel-popup">Cancel</button>
-                <button type="submit" class="btn-create-event">Create Event</button>
-              </div>
-            </form>
-          </div>
-        </div>
+        <!-- Create Event popup will be injected here -->
+        <div id="popup-include"></div>
     </main>
 
-    <!-- load shared navbar -->
+    <!-- load shared navbar and popup -->
     <script>
-        fetch('navbar.html').then(r => r.text()).then(html => {
-            document.getElementById('navbar-include').innerHTML = html;
-        });
+      // fetch navbar and popup html, then wire up open/close handlers
+      Promise.all([
+        fetch('navbar3.html').then(r => r.text()),
+        fetch('adminpopup.html').then(r => r.text())
+      ]).then(([navHtml, popupHtml]) => {
+        document.getElementById('navbar-include').innerHTML = navHtml;
+        document.getElementById('popup-include').innerHTML = popupHtml;
+
+        const popup = document.getElementById('create-event-popup');
+        const panelOpenBtn = document.getElementById('open-create-event-popup'); // panel "+ Create Event"
+        const navOpen = document.getElementById('nav-create-event'); // navbar "Create Event" anchor
+        const cancelBtn = document.getElementById('cancel-popup');
+        const closeBtn = popup.querySelector('.popup-close');
+        const form = document.getElementById('create-event-form');
+
+        function showPopup() {
+          popup.style.display = 'flex';
+          popup.querySelector('.popup-card')?.focus();
+        }
+        function hidePopup() { popup.style.display = 'none'; }
+
+        // panel button
+        if (panelOpenBtn) panelOpenBtn.addEventListener('click', showPopup);
+        // navbar link
+        if (navOpen) navOpen.addEventListener('click', function(e) { e.preventDefault(); showPopup(); });
+        // close / cancel
+        if (cancelBtn) cancelBtn.addEventListener('click', hidePopup);
+        if (closeBtn) closeBtn.addEventListener('click', hidePopup);
+        // submit
+        if (form) {
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // perform creation logic here
+            hidePopup();
+            alert('Event created!');
+          });
+        }
+      }).catch(err => console.error('failed loading navbar/popup', err));
     </script>
-    <script>
-  // Show popup when "+ Create Event" is clicked
-  document.addEventListener('DOMContentLoaded', function() {
-    const popup = document.getElementById('create-event-popup');
-    const openBtn = document.querySelector('.btn-create');
-    const cancelBtn = document.getElementById('cancel-popup');
-    const form = document.getElementById('create-event-form');
-
-    openBtn.addEventListener('click', () => {
-      popup.style.display = 'flex';
-    });
-
-    cancelBtn.addEventListener('click', () => {
-      popup.style.display = 'none';
-    });
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      // Handle event creation logic here
-      popup.style.display = 'none';
-      alert('Event created!');
-    });
-  });
-</script>
 </body>
 </html>

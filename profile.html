@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Profile Settings</title>
   <link rel="stylesheet" href="style/profile.css">
+  <link rel="stylesheet" href="style/login_styles/navbar.css">
 </head>
 <body>
   <div id="navbar-include"></div>
@@ -87,11 +88,11 @@
     </section>
   </main>
 
-  <script>
-    // load navbar.html into the page (simple client-side include)
-    fetch('navbar.html').then(r => r.text()).then(html => {
+    <script>
+    // load navbar2.html (logout variant) into the page
+    fetch('navbar2.html').then(r => r.text()).then(html => {
       document.getElementById('navbar-include').innerHTML = html;
     });
-  </script>
+    </script>
 </body>
 </html>

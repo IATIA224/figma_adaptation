@@ -1,76 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+/* global site font */
+:root{
+  --site-font: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@font-face{
+  font-family: 'Ag Single Line';
+  src: url('../fonts/AgSingleLine-BodyBase-B.woff2') format('woff2'),
+       url('../fonts/AgSingleLine-BodyBase-B.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 .site-nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1200;
   background: #fff;
-  padding: 18px 48px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  padding: 15px 0;             /* increased padding */
+  box-sizing: border-box;
   border-bottom-left-radius: 18px;
-  border-bottom-right-radius: 18px;
-  box-shadow: 0 2px 0 rgba(0,0,0,0.05);
+  border-bottom-right-radius: 18px; 
+  width: 100%;
+  left: 0;
+  right: 0;
+  position: relative;
+  z-index: 20; /* keep nav on top */
 }
 .nav-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  height: 100px;
+  width: 1180px;             /* fixed layout width used across pages */
+  max-width: calc(100% - 48px);
+  margin: 0 auto;            /* always centered */
+  padding: 0 24px;           /* internal horizontal padding */
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
+  box-sizing: border-box;
+  height: 90px;                /* keep consistent inner height */
 }
 .brand {
+  flex: 0 0 auto;            /* do not stretch */
   display: flex;
   align-items: center;
   gap: 12px;
-  font-weight: 600;
 }
-.brand-logo {
-  width: 40px;
-  height: 40px;
+.brand-icon {
+  width: 57px;                 /* ~30% smaller than 81px */
+  height: 57px;
+  object-fit: contain;
+  display: inline-block;
+}
+.brand span {
+  font-family: 'Ag Single Line', 'Montserrat', system-ui, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 18px; /* tweak as needed */
+  letter-spacing: 0.2px;
 }
 .nav-links {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
+  align-items: center;
+  justify-content: center;   /* center the links inside the center slot */
   gap: 28px;
+  flex: 1 1 520px;           /* take the middle portion consistently */
 }
 .nav-links a {
   color: #222;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 18px;            /* increased size for the 3 words */
+  font-weight: 600;
+  position: relative;         /* needed for the animated underline */
+  padding: 6px 12px;
+  transition: color 0.18s ease;
+  font-family: 'Montserrat', system-ui, Arial, sans-serif;
+  min-height: 90px;            /* match .site-nav */
+  display: inline-flex;
+  align-items: center;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 3px;               /* underline thickness */
+  background: #111;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.18s ease;
+  border-radius: 2px;
+}
+.nav-links a:hover {
+  color: #000;
+}
+.nav-links a:hover::after {
+  transform: scaleX(1);      /* shows the underline on hover */
 }
 .nav-actions {
   display: flex;
-  gap: 12px;
   align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
 }
 .nav-actions .signup {
-  background: #222;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #3C5EAC 0%, #510FDA 100%); /* same default blue */
   color: #fff;
-  padding: 8px 12px;
-  border-radius: 8px;
+  padding: 9px 14px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(81,15,218,0.12);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  height: 44px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.3s ease;
+  background-size: 200% 100%;
+}
+.nav-actions .signup:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(123,77,219,0.28);
+  background: linear-gradient(90deg, #6CA0FF 0%, #7B4DDB 100%);
+  background-position: right center;
+}
+.nav-actions .signup:active {
+  transform: translateY(0);
 }
 .nav-actions .login {
   color: #111;
   text-decoration: none;
-  font-weight: 700;
-  margin-right: 6px;
+  font-weight: 600;
+  padding: 8px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+}
+.nav-actions .logout {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 14px;
+    border-radius: 8px;
+    background: transparent;
+    color: #333;
+    border: 1px solid rgba(0,0,0,0.06);
+    text-decoration: none;
+    transition: background 220ms ease, color 220ms ease, box-shadow 220ms ease, transform 120ms ease;
 }
 
-/* Uniform navbar font and corner radius override */
+/* Hover / focus uses #E9D1D1 */
+.nav-actions .logout:hover,
+.nav-actions .logout:focus {
+    background: #E9D1D1;
+    color: #241619; /* darker text for contrast */
+    box-shadow: 0 8px 18px rgba(233,209,209,0.36);
+    transform: translateY(-2px);
+    outline: none;
+}
 
+.nav-actions .logout:active {
+    transform: translateY(0);
+}
 
+/* remove old Inter override and replace with Montserrat for the whole navbar */
 .site-nav,
-.site-nav *,
-.site-nav .brand,
-.site-nav .brand-logo,
-.site-nav .nav-links,
-.site-nav .nav-links a,
-.site-nav .nav-actions,
-.site-nav .nav-actions .login,
-.site-nav .nav-actions .signup {
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
+.site-nav * {
+  font-family: 'Montserrat', system-ui, Arial, sans-serif !important;
 }
 
 .site-nav {
     border-bottom-left-radius: 18px !important;
     border-bottom-right-radius: 18px !important;
+}
+
+/* make navbar stable and centered across all pages */
+.site-nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1200;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  padding: 15px 0;             /* increased padding */
+  box-sizing: border-box;
+  min-height: 90px;            /* was 60px */
+}
+
+/* fixed-width centered container — prevents layout from shifting
+   when other page styles add container padding/margins */
+.nav-inner {
+  width: 1180px;             /* fixed layout width used across pages */
+  max-width: calc(100% - 48px);
+  margin: 0 auto;            /* always centered */
+  padding: 0 24px;           /* internal horizontal padding */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-sizing: border-box;
+  height: 90px;                /* keep consistent inner height */
+}
+
+/* brand = left, links = center, actions = right */
+.brand {
+  flex: 0 0 auto;            /* do not stretch */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* center the links inside the center slot */
+  gap: 28px;
+  flex: 1 1 520px;           /* take the middle portion consistently */
+}
+
+/* keep actions pinned to the right */
+.nav-actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ensure login + signup sit inline and centered */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+/* basic Login text link */
+.nav-actions .login {
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+}
+
+/* Sign up button styling — use same blue + hover as .btn-login in login.css */
+.nav-actions .signup {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #3C5EAC 0%, #510FDA 100%); /* same default blue */
+  color: #fff;
+  padding: 9px 14px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(81,15,218,0.12);
+  text-decoration: none;
+  font-weight: 700;
+  height: 44px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.3s ease;
+  background-size: 200% 100%;
+}
+.nav-actions .signup:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(123,77,219,0.28);
+  background: linear-gradient(90deg, #6CA0FF 0%, #7B4DDB 100%);
+  background-position: right center;
+}
+.nav-actions .signup:active {
+  transform: translateY(0);
+}
+
+/* ensure Create Event in admin bar looks like other nav links (not a button) */
+.nav-links.admin-nav-links a,
+.nav-links.admin-nav-links a.btn-create,
+.nav-links.admin-nav-links a.create-link {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  font-weight: 600; /* match other center links */
+  text-decoration: none;
+  transform: none;
+  transition: color .18s ease;
+}
+.nav-links.admin-nav-links a:hover {
+  /* use same subtle hover as other nav items */
+  color: inherit;
+}
+
+/* keep controls vertically centered with the taller navbar */
+.nav-links a,
+.nav-actions a {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+}
+
+/* ensure consistent heights so pages with/without scrollbars don't cause shifts */
+.site-nav,
+.nav-inner,
+.nav-links a,
+.nav-actions a {
+  min-height: 60px;
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+/* small screen adjustments */
+@media (max-width: 980px) {
+  .nav-inner { width: calc(100% - 32px); padding: 0 16px; height: 69px; }
+  .nav-links { gap: 14px; flex: 1 1 auto; }
+  .brand-icon { width: 69px; height: 69px; } /* was 46px */
+  .site-nav { min-height: 69px; padding: 12px 0; }
+}
+
+/* admin-specific brand styling (navbar3) */
+.brand.admin-brand .brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.brand.admin-brand .brand-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #111;
+}
+.brand.admin-brand .brand-sub {
+  font-size: 12px;
+  font-weight: 400;
+  color: #6b6b6b;
+  margin-top: 4px;
+}
+
+/* make sure the middle link group stays centered and doesn't shift */
+.nav-links.admin-nav-links {
+  gap: 16px;
+  align-items: center;
 }

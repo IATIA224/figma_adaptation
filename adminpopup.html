@@ -1,0 +1,56 @@
+<nav hidden></nav> <!-- placeholder so editor shows HTML file type -->
+<!-- Create Event popup (used by admin.html) -->
+<div id="create-event-popup" class="popup-overlay" style="display:none;">
+  <div class="popup-card" role="dialog" aria-modal="true" aria-labelledby="create-event-title">
+    <button class="popup-close" aria-label="Close">✕</button>
+    <h2 id="create-event-title">Create Event</h2>
+    <form id="create-event-form">
+      <div class="form-row">
+        <input type="text" placeholder="Enter Event Title" required>
+      </div>
+      <div class="form-row">
+        <div class="input-icon">
+          <input type="text" placeholder="dd/mm/yyyy" required>
+          <span class="mdi mdi-calendar"></span>
+        </div>
+        <div class="input-icon">
+          <input type="text" placeholder="Select Time" required>
+          <span class="mdi mdi-clock"></span>
+        </div>
+      </div>
+      <div class="form-row">
+        <input type="text" placeholder="Event Location" required>
+        <select required>
+          <option>Select Category</option>
+          <option>Music</option>
+          <option>Sports</option>
+          <option>Career</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="input-icon" style="position:relative;">
+          <input type="number" placeholder="Max Attendees" required class="no-arrows">
+          <img src="image/add.png" alt="add" class="attendees-icon">
+        </div>
+        <select required>
+          <option>Upcoming</option>
+          <option>Ongoing</option>
+          <option>Completed</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="upload-box">
+          <img src="image/upload.png" alt="Upload" class="upload-icon">
+          <span>Click to upload or drag and drop</span>
+        </div>
+      </div>
+      <div class="form-row">
+        <textarea placeholder="Event Description..." required></textarea>
+      </div>
+      <div class="form-row form-actions">
+        <button type="button" id="cancel-popup">Cancel</button>
+        <button type="submit" class="btn-create-event">Create Event</button>
+      </div>
+    </form>
+  </div>
+</div>

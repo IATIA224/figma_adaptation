@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Montserrat', system-ui, Arial, sans-serif;
 }
+
+/* hide scrollbars but keep scroll behavior */
+html, body { scrollbar-width: none; -ms-overflow-style: none; }
+html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 
 /* Remove white margin/bar under navbar */
 body {
@@ -234,13 +240,13 @@ body {
     transition: background 0.2s;
 }
 .btn-edit:hover {
-    background: #e0e0e0;
+    background: #E9D1D1; /* hover color changed to E9D1D1 */
 }
 .btn-delete {
     color: #e74c3c;
 }
 .btn-delete:hover {
-    background: #ffeaea;
+    background: #E9D1D1; /* hover color changed to E9D1D1 */
 }
 .event-admin-actions .mdi-dots-vertical {
     font-size: 22px;
@@ -378,13 +384,14 @@ body {
   background: #fff;
 }
 
-.upload-box::before {
-  content: "\F0EE"; /* mdi-upload icon */
-  font-family: "Material Design Icons";
-  font-size: 2.2rem;
-  color: #222;
-  margin-bottom: 8px;
-  display: block;
+.attendees-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
 }
 
 .form-row textarea {
@@ -440,6 +447,17 @@ body {
   padding-right: 36px;
 }
 
+/* remove number input spinner controls and make it look like a text field */
+.no-arrows::-webkit-outer-spin-button,
+.no-arrows::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.no-arrows {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
 .input-icon .mdi {
   position: absolute;
   right: 12px;
@@ -455,6 +473,17 @@ body {
   height: 40px;
   margin-bottom: 8px;
   display: block;
+}
+
+/* ensure popup-close is hidden (safety fallback) */
+#create-event-popup .popup-close {
+    display: none !important;
+    width: 0;
+    height: 0;
+    border: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
 }
 
 @media (max-width: 700px) {

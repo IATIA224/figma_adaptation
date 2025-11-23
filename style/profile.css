@@ -9,7 +9,10 @@
   --radius:28px;
 }
 
-*{box-sizing:border-box;font-family:Inter, system-ui, Arial, sans-serif}
+*{box-sizing:border-box;font-family:'Montserrat', system-ui, Arial, sans-serif}
+/* Hide scrollbar globally for this page but keep scrolling */
+html, body { scrollbar-width: none; -ms-overflow-style: none; }
+html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 body,html{height:100%;margin:0;background:linear-gradient(180deg,#6f7bff,#7a4ed6); /* Gradient only here */}
 body, html {
   height: 100%;
@@ -18,7 +21,7 @@ body, html {
 }
 
 .site-nav{background:#fff;padding:18px 48px;border-bottom-left-radius:18px;border-bottom-right-radius:18px;box-shadow:0 2px 0 rgba(0,0,0,0.05)}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:12px;font-weight:600}
 .brand-logo{width:40px;height:40px}
 .nav-links{list-style:none;margin:0;padding:0;display:flex;gap:28px}
@@ -31,7 +34,7 @@ body, html {
 .page-bg{
   min-height:calc(100vh - 84px);
   padding:40px 60px;
-  margin-top: -15px; /* Match navbar border-radius for seamless blend */
+  margin-top: 18px; /* Match navbar border-radius for seamless blend */
   background:transparent; /* Remove gradient here */
   display:flex;
   justify-content:center;
@@ -103,4 +106,14 @@ body, html {
   .panel{width:86%}
   .nav-inner{padding:0 6px}
   .site-nav{padding:12px 18px}
+}
+
+.site-nav {
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+.nav-inner {
+  max-width: 1200px; /* match other pages */
+  margin: 0 auto;
 }
