@@ -33,22 +33,23 @@
   z-index: 20;
 }
 .nav-inner {
-  width: 1180px;
-  max-width: calc(100% - 48px);
-  margin: 0 auto;
-  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 0 0 18px; /* Less left padding, no right padding */
   box-sizing: border-box;
   height: 90px;
+  position: relative;
 }
 .brand {
   flex: 0 0 auto;
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 .brand-icon {
   width: 57px;
@@ -63,14 +64,17 @@
   letter-spacing: 0.2px;
 }
 .nav-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 28px;
-  flex: 1 1 520px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .nav-links a {
   color: #222;
@@ -105,10 +109,12 @@
   transform: scaleX(1);
 }
 .nav-actions {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 12px;
-  flex: 0 0 auto;
+  min-width: 0;
 }
 .nav-actions .signup {
   display: inline-flex;
@@ -198,16 +204,16 @@
 /* fixed-width centered container — prevents layout from shifting
    when other page styles add container padding/margins */
 .nav-inner {
-  width: 1180px;
-  max-width: calc(100% - 48px);
-  margin: 0 auto;
-  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 0 0 18px; /* Less left padding, no right padding */
   box-sizing: border-box;
   height: 90px;
+  position: relative;
 }
 
 /* brand = left, links = center, actions = right */
@@ -216,17 +222,21 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
 .nav-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 28px;
-  flex: 1 1 520px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* keep actions pinned to the right */
@@ -234,7 +244,9 @@
   flex: 0 0 auto;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 12px;
+  min-width: 0;
 }
 
 /* ensure login + signup sit inline and centered */
