@@ -6,15 +6,11 @@
     <title>Campus Events Admin</title>
     <link rel="stylesheet" href="style/admin.css">
     <link rel="stylesheet" href="style/login_styles/navbar.css">
-    <!-- Material Design Icons CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
 </head>
 <body>
-    <!-- shared navbar include -->
     <div id="navbar-include"></div>
-
     <main class="admin-bg">
-        <!-- Dashboard stats -->
         <section class="admin-stats">
             <div class="stat-card">
                 <span class="mdi mdi-calendar-outline stat-icon"></span>
@@ -37,8 +33,6 @@
                 <div class="stat-value">569/999</div>
             </div>
         </section>
-
-        <!-- Events admin panel -->
         <section class="admin-panel">
             <div class="panel-header">
                 <h2>Campus Events Admin</h2>
@@ -54,7 +48,6 @@
                 </select>
             </div>
             <div class="events-list">
-                <!-- Repeat for each event -->
                 <div class="event-admin-card">
                     <img src="image/smf.png" alt="Spring Music Festival" class="event-thumb">
                     <div class="event-admin-info">
@@ -83,7 +76,6 @@
                         <span class="mdi mdi-dots-vertical"></span>
                     </div>
                 </div>
-                <!-- Repeat above .event-admin-card for each event -->
                 <div class="event-admin-card">
                     <img src="image/smf.png" alt="Spring Music Festival" class="event-thumb">
                     <div class="event-admin-info">
@@ -112,11 +104,8 @@
                         <span class="mdi mdi-dots-vertical"></span>
                     </div>
                 </div>
-                <!-- Add more cards as needed -->
             </div>
         </section>
-
-        <!-- Recent Activity -->
         <section class="admin-activity">
             <h3>Recent Activity</h3>
             <div class="activity-list">
@@ -127,7 +116,6 @@
                     </div>
                     <span class="activity-time">2 min ago</span>
                 </div>
-
                 <div class="activity-item activity-approved">
                     <div class="activity-left">
                         <span class="activity-dot activity-dot-approved"><span class="mdi mdi-check" aria-hidden="true"></span></span>
@@ -135,7 +123,6 @@
                     </div>
                     <span class="activity-time">1 hour ago</span>
                 </div>
-
                 <div class="activity-item activity-updated">
                     <div class="activity-left">
                         <span class="activity-dot activity-dot-updated"><span class="mdi mdi-clock-outline" aria-hidden="true"></span></span>
@@ -145,46 +132,33 @@
                 </div>
             </div>
         </section>
-
-        <!-- Create Event popup will be injected here -->
         <div id="popup-include"></div>
     </main>
-
-    <!-- load shared navbar and popup -->
     <script>
-      // fetch navbar and popup html, then wire up open/close handlers
       Promise.all([
         fetch('navbar3.html').then(r => r.text()),
         fetch('adminpopup.html').then(r => r.text())
       ]).then(([navHtml, popupHtml]) => {
         document.getElementById('navbar-include').innerHTML = navHtml;
         document.getElementById('popup-include').innerHTML = popupHtml;
-
         const popup = document.getElementById('create-event-popup');
-        const panelOpenBtn = document.getElementById('open-create-event-popup'); // panel "+ Create Event"
-        const navOpen = document.getElementById('nav-create-event'); // navbar "Create Event" anchor
+        const panelOpenBtn = document.getElementById('open-create-event-popup');
+        const navOpen = document.getElementById('nav-create-event');
         const cancelBtn = document.getElementById('cancel-popup');
         const closeBtn = popup.querySelector('.popup-close');
         const form = document.getElementById('create-event-form');
-
         function showPopup() {
           popup.style.display = 'flex';
           popup.querySelector('.popup-card')?.focus();
         }
         function hidePopup() { popup.style.display = 'none'; }
-
-        // panel button
         if (panelOpenBtn) panelOpenBtn.addEventListener('click', showPopup);
-        // navbar link
         if (navOpen) navOpen.addEventListener('click', function(e) { e.preventDefault(); showPopup(); });
-        // close / cancel
         if (cancelBtn) cancelBtn.addEventListener('click', hidePopup);
         if (closeBtn) closeBtn.addEventListener('click', hidePopup);
-        // submit
         if (form) {
           form.addEventListener('submit', function(e) {
             e.preventDefault();
-            // perform creation logic here
             hidePopup();
             alert('Event created!');
           });

@@ -11,14 +11,14 @@
     z-index: 100;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Changed from center */
+    justify-content: space-between;
     margin: 0;
     border-radius: 0;
     max-width: 100%;
 }
 
 .nav-container {
-    display: contents; /* This makes the container "disappear" visually */
+    display: contents;
 }
 
 .nav-left {
@@ -37,7 +37,7 @@
 
 .logo-text {
     font-size: 1.125rem;
-    font-weight: 700; /* keep bold */
+    font-weight: 700;
     color: #1F2937;
     font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
@@ -54,7 +54,7 @@
     color: #000000;
     text-decoration: none;
     font-size: 1rem;
-    font-weight: 400; /* normal */
+    font-weight: 400;
     transition: color 0.3s ease;
     text-align: center;
     display: inline-block;
@@ -76,7 +76,7 @@
     color: #1F2937;
     text-decoration: none;
     font-size: 1rem;
-    font-weight: 400; /* normal */
+    font-weight: 400;
     transition: color 0.3s ease;
     font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
@@ -92,7 +92,7 @@
     padding: 0.625rem 1.5rem;
     border-radius: 8px;
     font-size: 1rem;
-    font-weight: 400; /* normal */
+    font-weight: 400;
     cursor: pointer;
     transition: all 0.3s ease;
     background-size: 200% 100%;

@@ -1,239 +1,204 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        background: linear-gradient(180deg, #6f7bff, #7a4ed6); /* Gradient only here */
-        /* Hide scrollbar for Firefox */
-        font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-        scrollbar-width: none;
-        /* Hide scrollbar for IE, Edge */
-        -ms-overflow-style: none;
-    }
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: linear-gradient(180deg, #6f7bff, #7a4ed6);
+    font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
 
-    /* Hide scrollbar for Chrome, Safari, Opera */
-    html::-webkit-scrollbar,
-    body::-webkit-scrollbar {
-        display: none;
-    }
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
 
-    /* Background gradient */
-    .events-bg {
-        margin-top: 18px; /* Space for navbar radius */
-        background: transparent; /* No background here */
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        padding-bottom: 48px;
-    }
+.events-bg {
+    margin-top: 18px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 48px;
+}
 
-    /* Card container */
+.events-card {
+    background: #e4e4e4;
+    border-radius: 44px;
+    padding: 48px 56px 56px;
+    width: 80vw;
+    max-width: 980px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: left;
+    margin-top: 3rem;
+}
+
+.events-title {
+    font-size: 44px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+.events-sub {
+    color: #222;
+    font-size: 16px;    
+    margin-bottom: 32px;
+}
+
+.events-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 38px;
+    background: #fff;
+    border-radius: 22px;
+    padding: 6px;
+    border: 4px solid #e4e4e4;
+    box-sizing: border-box;
+}
+.tab {
+    background: #fff;
+    border: none;
+    border-radius: 22px;
+    padding: 10px 0;
+    width: 50%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #222;
+    cursor: pointer;
+    box-shadow: none;
+    transition: background 0.2s, color 0.2s;
+    border: 2px solid transparent;
+}
+.tab.active {
+    background: #e4e4e4;
+    color: #222;
+    border: 2px solid #e4e4e4;
+    z-index: 1;
+}
+
+.events-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 56px;
+}
+.empty-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 18px 0 8px;
+}
+.empty-desc {
+    color: #444;
+    margin-bottom: 22px;
+}
+.btn-browse {
+    background: linear-gradient(90deg,#6f7bff,#7a4ed6);
+    color: #fff;
+    padding: 10px 28px;
+    border-radius: 20px;
+    border: none;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 6px 0 rgba(0,0,0,0.06);
+}
+
+.events-list {
+    margin-top: 36px;
+}
+.event-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background: #fff;
+    border-radius: 18px;
+    padding: 18px 28px;
+    margin-bottom: 22px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    position: relative;
+    min-height: 120px;
+    border: 2px solid transparent;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.event-row:hover {
+    border-color: #111;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    transform: translateY(-4px);
+}
+.event-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    flex: 1;
+    position: relative;
+}
+.event-thumb {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.tag {
+    background: #e74c3c;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 12px;
+    padding: 2px 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: inline-block;
+}
+.event-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+}
+.event-meta {
+    color: #666;
+    font-size: 15px;
+    margin-top: 2px;
+    margin-bottom: 24px;
+}
+.event-right {
+    text-align: right;
+}
+.event-date {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+.btn-details {
+    position: static;
+    margin-top: -12px;
+    background: linear-gradient(90deg,#6f7bff,#7a4ed6);
+    color: #111 !important;
+    text-decoration: none !important;
+    padding: 8px 22px;
+    border-radius: 16px;
+    border: none;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.06);
+    display: inline-block;
+    align-self: flex-start;
+}
+
+@media (max-width: 900px) {
     .events-card {
-        background: #e4e4e4;
-        border-radius: 44px;
-        padding: 48px 56px 56px;
-        width: 80vw;
-        max-width: 980px;
-        margin: 0 auto;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        text-align: left;
-        margin-top: 3rem;
-    }
-
-    /* Title and subtitle */
-    .events-title {
-        font-size: 44px;
-        font-weight: 800;
-        margin-bottom: 8px;
-    }
-    .events-sub {
-        color: #222;
-        font-size: 16px;    
-        margin-bottom: 32px;
-    }
-
-    /* Tabs */
-    .events-tabs {
-        display: flex;
-        justify-content: center;
-        gap: 0;
-        margin-bottom: 38px;
-        background: #fff;
-        border-radius: 22px;
-        padding: 6px;
-        border: 4px solid #e4e4e4;
-        box-sizing: border-box;
-    }
-    .tab {
-        background: #fff;         /* Inactive tab is white */
-        border: none;
-        border-radius: 22px;
-        padding: 10px 0;
-        width: 50%;
-        font-size: 16px;
-        font-weight: 500;
-        color: #222;
-        cursor: pointer;
-        box-shadow: none;
-        transition: background 0.2s, color 0.2s;
-        border: 2px solid transparent;
-    }
-    .tab.active {
-        background: #e4e4e4;     /* Active tab is gray */
-        color: #222;
-        border: 2px solid #e4e4e4;
-        z-index: 1;
-    }
-
-    /* Empty state */
-    .events-empty {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 56px;
-    }
-    .empty-title {
-        font-size: 24px;
-        font-weight: 700;
-        margin: 18px 0 8px;
-    }
-    .empty-desc {
-        color: #444;
-        margin-bottom: 22px;
-    }
-    .btn-browse {
-        background: linear-gradient(90deg,#6f7bff,#7a4ed6);
-        color: #fff;
-        padding: 10px 28px;
-        border-radius: 20px;
-        border: none;
-        font-weight: 700;
-        font-size: 15px;
-        cursor: pointer;
-        box-shadow: 0 6px 0 rgba(0,0,0,0.06);
-    }
-
-    /* Registered events list */
-    .events-list {
-        margin-top: 36px;
+        width: 98vw;
+        padding: 24px 8px 32px;
     }
     .event-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: stretch;
-        background: #fff;
-        border-radius: 18px;
-        padding: 18px 28px;
-        margin-bottom: 22px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        position: relative;
-        min-height: 120px;
-        border: 2px solid transparent;
-        transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-    }
-    .event-row:hover {
-        border-color: #111;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.10);
-        transform: translateY(-4px);
-    }
-    .event-left {
-        display: flex;
+        flex-direction: column;
         align-items: flex-start;
-        gap: 18px;
-        flex: 1;
-        position: relative;
-    }
-    .event-thumb {
-        width: 70px;
-        height: 70px;
-        border-radius: 12px;
-        object-fit: cover;
-        margin-right: 10px;
-    }
-    .tag {
-        background: #e74c3c;
-        color: #fff;
-        font-size: 14px;
-        border-radius: 12px;
-        padding: 2px 12px;
-        font-weight: 600;
-        margin-bottom: 6px;
-        display: inline-block;
-    }
-    .event-title {
-        font-size: 18px;
-        font-weight: 700;
-        margin: 0 0 4px 0;
-    }
-    .event-meta {
-        color: #666;
-        font-size: 15px;
-        margin-top: 2px;
-        margin-bottom: 24px; /* Add space for button */
+        gap: 12px;
     }
     .event-right {
-        text-align: right;
+        text-align: left;
     }
-    .event-date {
-        font-size: 15px;
-        margin-bottom: 8px;
-    }
-    .btn-details {
-        position: static;
-        margin-top: -12px; /* Previously 12px, now reduced by 50% */
-        background: linear-gradient(90deg,#6f7bff,#7a4ed6);
-        color: #fff;
-        padding: 8px 22px;
-        border-radius: 16px;
-        border: none;
-        font-weight: 700;
-        font-size: 14px;
-        cursor: pointer;
-        box-shadow: 0 4px 0 rgba(0,0,0,0.06);
-        display: inline-block;
-        align-self: flex-start; /* aligns button with the start of event-info */
-    }
-
-    /* Example event card markup (Now commented out to prevent CSS syntax errors) */
-    /*
-    <div class="event-row">
-    <div class="event-left">
-        <img src="image/smf.png" alt="Spring Music Festival" class="event-thumb">
-        <div>
-        <span class="tag">Music</span>
-        <h3 class="event-title">Spring Music Festival</h3>
-        <div class="event-meta">
-            <span>
-            <img src="image/pin.png" alt="Location" style="width:16px;height:16px;vertical-align:middle;margin-right:4px;">
-            Campus theatre
-            </span>
-        </div>
-        <button class="btn-details">View Details</button>
-        </div>
-    </div>
-    <div class="event-right">
-        <div class="event-date">
-        <strong>Mar 10, 2024</strong><br>
-        <span>2:00 PM - 5:00 PM</span>
-        </div>
-    </div>
-    </div>
-    */
-
-    /* Responsive */
-    @media (max-width: 900px) {
-        .events-card {
-            width: 98vw;
-            padding: 24px 8px 32px;
-        }
-        .event-row {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 12px;
-        }
-        .event-right {
-            text-align: left;
-        }
-    }
+}

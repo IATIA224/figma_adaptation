@@ -6,61 +6,26 @@
     <title>Campus Event Finder - Events</title>
     <link rel="stylesheet" href="style/login_styles/events.css">
     <link rel="stylesheet" href="style/login_styles/navbar.css">
-    <!-- Material Design Icons CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
 </head>
 <body>
-    <!-- shared navbar include -->
     <div id="navbar-include"></div>
-
     <main class="events-bg">
         <section class="events-card">
             <h1 class="events-title">My Events</h1>
             <p class="events-sub">Manage your registered events and view your event history</p>
-            
             <div class="events-tabs">
                 <button class="tab active" id="tab-upcoming">Upcoming Events</button>
                 <button class="tab" id="tab-past">Past events</button>
             </div>
-
-            <!-- Upcoming Events Section -->
             <div id="upcoming-section">
-                <!-- If no events, show empty state -->
                 <div class="events-empty">
                     <span class="mdi mdi-calendar" style="font-size:90px;color:#222;"></span>
                     <h2 class="empty-title">No upcoming events</h2>
                     <p class="empty-desc">You haven't registered for any upcoming events yet.</p>
                     <button class="btn-browse">Browse Events</button>
                 </div>
-                <!-- If there are events, show this instead:
-                <div class="events-list">
-                    <div class="event-row">
-                        <div class="event-left">
-                            <img src="image/smf.png" alt="Spring Music Festival" class="event-thumb">
-                            <div>
-                                <span class="tag">Music</span>
-                                <h3 class="event-title">Spring Music Festival</h3>
-                                <div class="event-meta">
-                                    <span>
-                                        <img src="image/pin.png" alt="Location" style="width:16px;height:16px;vertical-align:middle;margin-right:4px;">
-                                        Campus theatre
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="event-right">
-                            <div class="event-date">
-                                <strong>Apr 12, 2024</strong><br>
-                                <span>2:00 PM - 5:00 PM</span>
-                            </div>
-                            <button class="btn-details">View Details</button>
-                        </div>
-                    </div>
-                </div>
-                -->
             </div>
-
-            <!-- Past Events Section -->
             <div id="past-section" style="display:none;">
                 <div class="events-list">
                     <div class="event-row">
@@ -75,7 +40,7 @@
                                         Campus theatre
                                     </span>
                                 </div>
-                                <button class="btn-details">View Details</button>
+                                <a class="btn-details" href="home.html">View Details</a>
                             </div>
                         </div>
                         <div class="event-right">
@@ -85,7 +50,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Add more past event cards below as needed -->
                     <div class="event-row">
                         <div class="event-left">
                             <img src="image/smf.png" alt="Spring Music Festival" class="event-thumb">
@@ -98,7 +62,7 @@
                                         Campus theatre
                                     </span>
                                 </div>
-                                <button class="btn-details">View Details</button>
+                                <a class="btn-details" href="home.html">View Details</a>
                             </div>
                         </div>
                         <div class="event-right">
@@ -112,27 +76,21 @@
             </div>
         </section>
     </main>
-
-    <!-- load shared navbar -->
     <script>
         fetch('navbar2.html').then(r => r.text()).then(html => {
             document.getElementById('navbar-include').innerHTML = html;
         });
-
-        // Tab toggle logic
         document.addEventListener('DOMContentLoaded', function() {
             const tabUpcoming = document.getElementById('tab-upcoming');
             const tabPast = document.getElementById('tab-past');
             const upcomingSection = document.getElementById('upcoming-section');
             const pastSection = document.getElementById('past-section');
-
             tabUpcoming.addEventListener('click', function() {
                 tabUpcoming.classList.add('active');
                 tabPast.classList.remove('active');
                 upcomingSection.style.display = '';
                 pastSection.style.display = 'none';
             });
-
             tabPast.addEventListener('click', function() {
                 tabPast.classList.add('active');
                 tabUpcoming.classList.remove('active');

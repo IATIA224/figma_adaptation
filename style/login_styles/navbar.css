@@ -22,7 +22,7 @@
   z-index: 1200;
   background: #fff;
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  padding: 15px 0;             /* increased padding */
+  padding: 15px 0;
   box-sizing: border-box;
   border-bottom-left-radius: 18px;
   border-bottom-right-radius: 18px; 
@@ -30,28 +30,28 @@
   left: 0;
   right: 0;
   position: relative;
-  z-index: 20; /* keep nav on top */
+  z-index: 20;
 }
 .nav-inner {
-  width: 1180px;             /* fixed layout width used across pages */
+  width: 1180px;
   max-width: calc(100% - 48px);
-  margin: 0 auto;            /* always centered */
-  padding: 0 24px;           /* internal horizontal padding */
+  margin: 0 auto;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   box-sizing: border-box;
-  height: 90px;                /* keep consistent inner height */
+  height: 90px;
 }
 .brand {
-  flex: 0 0 auto;            /* do not stretch */
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   gap: 12px;
 }
 .brand-icon {
-  width: 57px;                 /* ~30% smaller than 81px */
+  width: 57px;
   height: 57px;
   object-fit: contain;
   display: inline-block;
@@ -59,7 +59,7 @@
 .brand span {
   font-family: 'Ag Single Line', 'Montserrat', system-ui, Arial, sans-serif;
   font-weight: 700;
-  font-size: 18px; /* tweak as needed */
+  font-size: 18px;
   letter-spacing: 0.2px;
 }
 .nav-links {
@@ -68,20 +68,20 @@
   padding: 0;
   display: flex;
   align-items: center;
-  justify-content: center;   /* center the links inside the center slot */
+  justify-content: center;
   gap: 28px;
-  flex: 1 1 520px;           /* take the middle portion consistently */
+  flex: 1 1 520px;
 }
 .nav-links a {
   color: #222;
   text-decoration: none;
-  font-size: 18px;            /* increased size for the 3 words */
+  font-size: 18px;
   font-weight: 600;
-  position: relative;         /* needed for the animated underline */
+  position: relative;
   padding: 6px 12px;
   transition: color 0.18s ease;
   font-family: 'Montserrat', system-ui, Arial, sans-serif;
-  min-height: 90px;            /* match .site-nav */
+  min-height: 90px;
   display: inline-flex;
   align-items: center;
 }
@@ -91,7 +91,7 @@
   left: 0;
   right: 0;
   bottom: -6px;
-  height: 3px;               /* underline thickness */
+  height: 3px;
   background: #111;
   transform: scaleX(0);
   transform-origin: left center;
@@ -102,7 +102,7 @@
   color: #000;
 }
 .nav-links a:hover::after {
-  transform: scaleX(1);      /* shows the underline on hover */
+  transform: scaleX(1);
 }
 .nav-actions {
   display: flex;
@@ -114,7 +114,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(90deg, #3C5EAC 0%, #510FDA 100%); /* same default blue */
+  background: linear-gradient(90deg, #3C5EAC 0%, #510FDA 100%);
   color: #fff;
   padding: 9px 14px;
   border-radius: 10px;
@@ -160,7 +160,7 @@
 .nav-actions .logout:hover,
 .nav-actions .logout:focus {
     background: #E9D1D1;
-    color: #241619; /* darker text for contrast */
+    color: #241619;
     box-shadow: 0 8px 18px rgba(233,209,209,0.36);
     transform: translateY(-2px);
     outline: none;
@@ -190,29 +190,29 @@
   z-index: 1200;
   background: #fff;
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  padding: 15px 0;             /* increased padding */
+  padding: 15px 0;
   box-sizing: border-box;
-  min-height: 90px;            /* was 60px */
+  min-height: 90px;
 }
 
 /* fixed-width centered container — prevents layout from shifting
    when other page styles add container padding/margins */
 .nav-inner {
-  width: 1180px;             /* fixed layout width used across pages */
+  width: 1180px;
   max-width: calc(100% - 48px);
-  margin: 0 auto;            /* always centered */
-  padding: 0 24px;           /* internal horizontal padding */
+  margin: 0 auto;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   box-sizing: border-box;
-  height: 90px;                /* keep consistent inner height */
+  height: 90px;
 }
 
 /* brand = left, links = center, actions = right */
 .brand {
-  flex: 0 0 auto;            /* do not stretch */
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -224,9 +224,9 @@
   padding: 0;
   display: flex;
   align-items: center;
-  justify-content: center;   /* center the links inside the center slot */
+  justify-content: center;
   gap: 28px;
-  flex: 1 1 520px;           /* take the middle portion consistently */
+  flex: 1 1 520px;
 }
 
 /* keep actions pinned to the right */
@@ -262,7 +262,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(90deg, #3C5EAC 0%, #510FDA 100%); /* same default blue */
+  background: linear-gradient(90deg, #3C5EAC 0%, #510FDA 100%);
   color: #fff;
   padding: 9px 14px;
   border-radius: 10px;
@@ -292,13 +292,12 @@
   border-radius: 0;
   box-shadow: none;
   color: inherit;
-  font-weight: 600; /* match other center links */
+  font-weight: 600;
   text-decoration: none;
   transform: none;
   transition: color .18s ease;
 }
 .nav-links.admin-nav-links a:hover {
-  /* use same subtle hover as other nav items */
   color: inherit;
 }
 
@@ -324,7 +323,7 @@
 @media (max-width: 980px) {
   .nav-inner { width: calc(100% - 32px); padding: 0 16px; height: 69px; }
   .nav-links { gap: 14px; flex: 1 1 auto; }
-  .brand-icon { width: 69px; height: 69px; } /* was 46px */
+  .brand-icon { width: 69px; height: 69px; }
   .site-nav { min-height: 69px; padding: 12px 0; }
 }
 
