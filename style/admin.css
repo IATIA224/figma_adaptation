@@ -47,12 +47,13 @@ body {
 .admin-stats {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 3.5rem; /* match figma - spacing 50% increase */
     width: 100%;
     justify-content: center;
     margin: 0 auto;
     padding: 0 1rem;
     box-sizing: border-box;
+    margin-top: 100px;
 }
 
 /* Shared card styles */
@@ -75,33 +76,33 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 290px;
-    height: 168px;
+    width: 290px;  /* match figma - width */
+    height: 168px; /* match figma - height */
     flex-shrink: 0;
     border-radius: 2.5rem;
 }
 
-/* Stat card borders */
-.stat-card:nth-child(1) { border-left: 5px solid #C4C922; }
-.stat-card:nth-child(2) { border-left: 5px solid #2AC922; }
-.stat-card:nth-child(3) { border-left: 5px solid #2225C9; }
-.stat-card:nth-child(4) { border-left: 5px solid #C92222; }
+/* Stat card borders - increased width by 50% */
+.stat-card:nth-child(1) { border-left: 7.5px solid #C4C922; } /* match figma - border width */
+.stat-card:nth-child(2) { border-left: 7.5px solid #2AC922; } /* match figma - border width */
+.stat-card:nth-child(3) { border-left: 7.5px solid #2225C9; } /* match figma - border width */
+.stat-card:nth-child(4) { border-left: 7.5px solid #C92222; } /* match figma - border width */
 
 .stat-icon {
-    width: 2rem;
-    height: 2rem;
+    width: 40px; /* match figma - width */
+    height: 40px; /* match figma - height */
     object-fit: contain;
     margin-bottom: 0.5rem;
 }
 
 .stat-label {
-    font-size: 0.85rem;
+    font-size: 24px; /* match figma - font size */
     color: #444;
     margin-bottom: 0.3rem;
 }
 
 .stat-value {
-    font-size: 1.25rem;
+    font-size: 36px; /* match figma - font size */
     font-weight: 700;
     color: #222;
 }
@@ -109,10 +110,21 @@ body {
 /* Admin Panel - centered with FIXED symmetric padding */
 .admin-panel,
 .admin-activity {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
+    width: 1309px; /* match figma - width */
+    max-width: 1309px; /* match figma - width */
+    margin: 0 auto; /* match figma - center */
     padding: 1.5rem 1rem;
+    display: flex; /* match figma - layout */
+    flex-direction: column; /* match figma - layout */
+    align-items: center; /* match figma - center */
+}
+
+.admin-panel {
+    height: 1231px; /* match figma - height */
+}
+
+.admin-activity {
+    height: 448px; /* match figma - height */
 }
 
 /* Panel Header */
@@ -127,7 +139,7 @@ body {
 }
 
 .panel-header h2 {
-    font-size: 1.15rem;
+    font-size: 32px; /* match figma - font size */
     font-weight: 700;
     margin: 0;
 }
@@ -162,11 +174,13 @@ body {
     gap: 0.75rem;
     margin-bottom: 1.5rem;
     width: 100%;
+    align-items: center; /* match figma - center */
 }
 
 .search-input,
 .filter-select {
-    width: 100%;
+    width: 1151px; /* match figma - width */
+    height: 48px; /* match figma - height */
     padding: 0.65rem 0.85rem;
     border-radius: 0.65rem;
     border: 1px solid #ddd;
@@ -195,8 +209,9 @@ body {
 .events-list {
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
+    gap: 3rem;
     width: 100%;
+    align-items: center; /* match figma - center */
 }
 
 .event-admin-card {
@@ -204,13 +219,14 @@ body {
     border-radius: 0.85rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     display: flex;
-    align-items: flex-start;
-    padding: 0.85rem;
-    gap: 0.85rem;
-    border: 1px solid #eee;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    border: 2px solid #000; /* match figma - border */
     transition: all 0.25s ease;
     box-sizing: border-box;
-    width: 100%;
+    width: 1154px; /* match figma - width */
+    height: 181px; /* match figma - height */
     min-width: 0;
 }
 
@@ -225,19 +241,19 @@ body {
 }
 
 .event-thumb {
-    width: 4rem;
-    height: 4rem;
+    width: 102px; /* match figma - width */
+    height: 100px; /* match figma - height */
     border-radius: 0.65rem;
     object-fit: cover;
     flex-shrink: 0;
-    min-width: 4rem;
+    min-width: 102px;
 }
 
 .event-admin-info {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 0.5rem;
     min-width: 0;
 }
 
@@ -250,7 +266,7 @@ body {
 }
 
 .event-admin-title {
-    font-size: 0.95rem;
+    font-size: 20px; /* match figma - font size */
     font-weight: 700;
     color: #222;
     word-break: break-word;
@@ -274,13 +290,14 @@ body {
     color: #555;
     line-height: 1.4;
     width: 100%;
+    margin-bottom: 0.25rem;
 }
 
 .event-admin-meta {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    font-size: 0.75rem;
+    font-size: 16px; /* match figma - font size */
     color: #777;
     margin-top: 0.3rem;
     width: 100%;
@@ -302,7 +319,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 0.5rem;
+    gap: 0.6rem;
     flex-shrink: 0;
 }
 
@@ -313,7 +330,7 @@ body {
     border: none;
     border-radius: 0.5rem;
     padding: 0.35rem 0.75rem;
-    font-size: 0.8rem;
+    font-size: 16px; /* match figma - font size */
     font-weight: 600;
     cursor: pointer;
     transition: background 0.2s;
@@ -341,7 +358,7 @@ body {
 
 /* Activity Section */
 .admin-activity h3 {
-    font-size: 1.1rem;
+    font-size: 32px; /* match figma - font size */
     font-weight: 700;
     margin-bottom: 1rem;
 }
@@ -349,8 +366,9 @@ body {
 .activity-list {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 2.225rem; /* doubled from 0.75rem */
     width: 100%;
+    align-items: center; /* center activity items */
 }
 
 .activity-item {
@@ -361,7 +379,8 @@ body {
     border-radius: 0.65rem;
     font-size: 0.9rem;
     font-weight: 500;
-    width: 100%;
+    width: 1114px; /* match figma - width */
+    height: 69px; /* match figma - height */
     box-sizing: border-box;
     min-width: 0;
 }
@@ -482,22 +501,17 @@ body {
 }
 
 .upload-box {
-    background: #e5e5e5;
-    border-radius: 0.65rem;
-    padding: 1.5rem;
+    border: 2px dashed #ccc;
+    border-radius: 0.75rem;
+    padding: 2rem;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
-    transition: background 0.2s;
-    width: 100%;
-    box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
 .upload-box:hover {
-    background: #ddd;
+    background: #FAEDED; /* match figma - hover color */
+    border-color: #FAEDED;
 }
 
 .upload-icon {
