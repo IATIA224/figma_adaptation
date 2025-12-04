@@ -362,3 +362,15 @@
   gap: 16px;
   align-items: center;
 }
+
+/* Hide the checkbox input */
+.nav-toggle {
+    display: none !important;
+    visibility: hidden !important;
+    position: absolute !important;
+    left: -9999px !important;
+}
+
+.nav-toggle-label {
+    display: none !important;
+}
