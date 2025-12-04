@@ -16,7 +16,7 @@ html, body {
     width: 100vw;
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', system-ui, Arial, sans-serif;
+    font-family: 'Poppins', system-ui, Arial, sans-serif;
     background: linear-gradient(180deg, #6f7bff 0%, #7a4ed6 100%) !important;
     color: #111;
     scrollbar-width: none;
@@ -34,8 +34,8 @@ html, body {
 
 .page{max-width:1100px;margin:22px auto;padding:0 20px}
 .hero{text-align:center;padding:28px 12px 18px}
-.hero-title{margin:0;font-size:28px;color:#0b0b0b}
-.hero-sub{margin:8px 0 18px;color:#3b3b3b}
+.hero-title{margin:0;font-size:32px;color:#0b0b0b; font-family: 'Poppins', system-ui, Arial, sans-serif;}
+.hero-sub{margin:8px 0 18px;color:#3b3b3b; font-size: 16px;}
 .hero.hero-bg{background:linear-gradient(180deg,#ffffff 0%,#fbfaff 100%);border-radius:10px;box-shadow:0 6px 24px rgba(3,3,3,0.06);margin:18px 0;padding:40px 24px}
 
 .controls{display:flex;gap:12px;justify-content:center;align-items:center;margin-top:8px;flex-wrap:wrap}
@@ -49,12 +49,13 @@ html, body {
     min-width:300px;
     max-width:520px;
     height:48px;
+    font-family: poppins, system-ui, Arial, sans-serif;
 }
 .search input{
     border:0;
     background:transparent;
     outline:none;
-    padding:0 12px;
+    padding:0 20px;
     flex:1;
     height:100%;
     font-size:14px;
@@ -78,18 +79,19 @@ html, body {
 }
 
 .filter{
-     background:#D9D9D9;
-     border-radius:12px;
-     height:48px;
+    background:#D9D9D9;
+    border-radius:50px;
+    height:48px;
     padding:0 44px 0 12px;
-     border:0;
-     min-width:150px;
-     color:#111;
-     display:inline-flex;
-     align-items:center;
-     justify-content:space-between;
-     gap:8px;
-     font-size:14px;
+    border:0;
+    min-width:150px;
+    color:#111;
+    display:inline-flex;
+    align-items:center;
+    justify-content:space-between;
+    font-family: poppins, system-ui, Arial, sans-serif;
+    gap:8px;
+    font-size:14px;
     -webkit-appearance:none;
     -moz-appearance:none;
     appearance:none;
@@ -134,7 +136,8 @@ html, body {
 
 @media (min-width:1000px){
     .card-media img{height:190px}
-    .hero-title{font-size:32px}
+    .hero-title{font-size:32px; font-family: 'Poppins', system-ui, Arial, sans-serif;}
+    
 }
 
 .navbar {

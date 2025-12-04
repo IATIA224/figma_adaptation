@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: poppins, sans-serif;
     min-height: 100vh;
     background: linear-gradient(180deg, #6366F1 0%, #8B5CF6 100%);
     overflow-x: hidden;           /* keep horizontal overflow hidden */
@@ -82,12 +82,12 @@ body {
 
 .welcome-text {
     font-size: clamp(0.95rem, 3.2vw, 1.1rem); /* responsive font size */
+    font-family: poppins, sans-serif;
     font-weight: 700;
     color: #1F2937;
     text-align: center;
     margin-bottom: 1.2rem;
     line-height: 1.4;
-    text-shadow: 0 4px 12px rgba(0,0,0,0.50);
 }
 
 .login-form {
@@ -146,7 +146,8 @@ body {
     width: clamp(140px, 60%, 171px); /* responsive width that scales */ /* matched figma */
     max-width: 95%;
     height: 37px;
-    background: linear-gradient(90deg, #3C5EAC 0%, #510FDA 100%);
+    font-family: poppins, sans-serif    ;
+background: linear-gradient(90deg, #5B8CFF 0%, #7B4DDB 99%);
     color: #FFFFFF;
     border: none;
     border-radius: 10px;
