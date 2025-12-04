@@ -317,3 +317,9 @@ body {
         padding: 0 0.3rem;
     }
 }
+
+@media (max-width: 425px) {
+    .login-card-inner {
+        padding: 28px 28px 28px 28px !important;
+    }
+}
