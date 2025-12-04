@@ -188,17 +188,132 @@ body::-webkit-scrollbar {
     align-self: flex-start;
 }
 
-@media (max-width: 900px) {
+/* Phones Landscape & Small Tablets (≤ 768px) */
+@media (max-width: 768px) {
     .events-card {
-        width: 98vw;
-        padding: 24px 8px 32px;
+        width: 94vw;
+        padding: 32px 24px;
     }
+
+    .events-tabs {
+        width: 100%;
+        padding: 4px;
+    }
+
+    .tab {
+        font-size: 14px;
+    }
+
+    .event-row {
+        padding: 16px 18px;
+    }
+
+    .event-title {
+        font-size: 16px;
+    }
+}
+
+/* Phones Portrait (≤ 480px) */
+@media (max-width: 480px) {
+
+    /* Main card */
+    .events-card {
+        width: 100%;
+        padding: 24px 18px;
+        border-radius: 30px;
+        margin-top: 1rem;
+    }
+
+    .events-title {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .events-sub {
+        text-align: center;
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+
+    /* Tabs fill screen */
+    .events-tabs {
+        flex-direction: row;
+        padding: 4px;
+    }
+
+    .tab {
+        font-size: 14px;
+        padding: 8px 0;
+    }
+
+    /* Upcoming / empty state */
+    .empty-title {
+        font-size: 20px;
+    }
+
+    .empty-desc {
+        font-size: 14px;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    /* Event rows stack vertically */
     .event-row {
         flex-direction: column;
         align-items: flex-start;
+        padding: 18px;
+    }
+
+    .event-left {
+        flex-direction: row;
         gap: 12px;
     }
-    .event-right {
-        text-align: left;
+
+    .event-thumb {
+        width: 60px;
+        height: 60px;
     }
+
+    .event-title {
+        font-size: 16px;
+    }
+
+    .event-meta {
+        font-size: 14px;
+        margin-bottom: 14px;
+    }
+
+    .event-date {
+        font-size: 14px;
+        margin-top: 8px;
+    }
+
+    .event-right {
+        width: 100%;
+        text-align: left;
+        margin-top: 10px;
+    }
+
+    /* Details button stays aligned */
+    .btn-details {
+        margin-top: 0;
+        font-size: 13px;
+        padding: 7px 16px;
+    }
+}
+
+/* Extra small phones (≤ 360px) */
+@media (max-width: 360px) {
+    .events-title {
+        font-size: 24px;
+    }
+
+    .tab {
+        font-size: 13px;
+    }
+
+    .event-title {
+        font-size: 15px;
+    }
+}
 }
