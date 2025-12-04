@@ -122,12 +122,13 @@
   justify-content: center;
   background: linear-gradient(90deg, #3C5EAC 0%, #510FDA 100%);
   color: #fff;
-  padding: 9px 14px;
+  padding: 0; /* match figma - no padding needed with fixed dimensions */
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(81,15,218,0.12);
   text-decoration: none;
   font-weight: 700;
-  height: 44px;
+  height: 41px; /* match figma - height */
+  width: 81px; /* match figma - width */
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.3s ease;
   background-size: 200% 100%;
 }
@@ -157,9 +158,12 @@
     border-radius: 8px;
     background: transparent;
     color: #333;
-    border: 1px solid rgba(0,0,0,0.06);
+    border: 1.5px solid #000; /* match figma - black border */
     text-decoration: none;
     transition: background 220ms ease, color 220ms ease, box-shadow 220ms ease, transform 120ms ease;
+    width: 166px; /* match figma - width */
+    height: 50px; /* match figma - height */
+    justify-content: center;
 }
 
 /* Hover / focus uses #E9D1D1 */
@@ -276,12 +280,13 @@
   justify-content: center;
   background: linear-gradient(90deg, #3C5EAC 0%, #510FDA 100%);
   color: #fff;
-  padding: 9px 14px;
+  padding: 0; /* match figma - no padding needed with fixed dimensions */
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(81,15,218,0.12);
   text-decoration: none;
   font-weight: 700;
-  height: 44px;
+  height: 41px; /* match figma - height */
+  width: 81px; /* match figma - width */
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.3s ease;
   background-size: 200% 100%;
 }
@@ -344,17 +349,16 @@
   display: flex;
   flex-direction: column;
   line-height: 1;
+  color: #000; /* match figma - black text */
 }
 .brand.admin-brand .brand-title {
-  font-size: 18px;
+  font-size: 25px; /* match figma - font size */
   font-weight: 800;
-  color: #111;
+  color: #000; /* match figma - black text */
 }
-.brand.admin-brand .brand-sub {
-  font-size: 12px;
-  font-weight: 400;
-  color: #6b6b6b;
-  margin-top: 4px;
+.brand.admin-brand .brand-subtitle {
+  font-size: 0.85rem;
+  color: #000; /* match figma - black text */
 }
 
 /* make sure the middle link group stays centered and doesn't shift */

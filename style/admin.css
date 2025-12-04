@@ -38,7 +38,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    gap: 1.5rem;
+    gap: 6rem; /* doubled from 3rem - 100% increase - match figma */
     width: 100%;
     overflow-x: hidden;
 }
@@ -159,7 +159,7 @@ body {
 }
 
 .btn-create:hover {
-    background: linear-gradient(90deg, #5a6ad1 0%, #6d3cc9 100%);
+    background: linear-gradient(90deg, #5A6AD1 0%, #6EC6E7 100%); /* match figma - hover gradient */
     transform: translateY(-2px);
 }
 
@@ -260,26 +260,26 @@ body {
 .event-admin-title-row {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    flex-wrap: wrap;
-    width: 100%;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: nowrap;
 }
 
 .event-admin-title {
     font-size: 20px; /* match figma - font size */
     font-weight: 700;
-    color: #222;
-    word-break: break-word;
-    flex: 1;
-    min-width: 0;
+    color: #000; /* match figma - black text */
+    margin: 0;
+    flex: 0 1 auto;
+    white-space: nowrap;
 }
 
 .tag-admin {
     background: #e74c3c;
     color: #fff;
-    font-size: 0.7rem;
-    border-radius: 0.5rem;
-    padding: 0.2rem 0.6rem;
+    font-size: 0.65rem;
+    border-radius: 1rem;
+    padding: 0.35rem 0.75rem;
     font-weight: 600;
     white-space: nowrap;
     flex-shrink: 0;
@@ -443,16 +443,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    z-index: 9999; /* match figma - above navbar */
     padding: 1rem;
     overflow: hidden;
 }
 
 .popup-card {
     padding: 2rem;
-    width: 100%;
-    max-width: 700px;
-    max-height: 90vh;
+    width: 992px; /* match figma - width */
+    max-width: 992px; /* match figma - width */
+    max-height: 819px; /* match figma - height */
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     position: relative;
@@ -489,7 +489,7 @@ body {
     width: 100%;
     padding: 0.85rem 1rem;
     border-radius: 0.6rem;
-    border: 2px solid #4a90e2;
+    border: 2px solid #097E90; /* match figma - border color */
     font-size: 0.95rem;
     transition: all 0.2s;
     box-sizing: border-box;
@@ -510,7 +510,7 @@ body {
 .form-row select:focus,
 .form-row textarea:focus {
     outline: none;
-    border-color: #4a90e2;
+    border-color: #097E90; /* match figma - border color */
     box-shadow: none;
 }
 
@@ -541,7 +541,7 @@ body {
     padding: 0.85rem 1rem;
     padding-right: 2.5rem;
     border-radius: 0.6rem;
-    border: 2px solid #4a90e2;
+    border: 2px solid #097E90; /* match figma - border color */
 }
 
 .input-icon .mdi {
@@ -565,7 +565,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.3125rem; /* decreased from 1.25rem by 75% - match figma */
 }
 
 .upload-box:hover {
@@ -602,21 +602,25 @@ body {
     margin-top: 2rem;
     grid-column: 1 / -1;
     width: 100%;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* keep buttons on one line */
 }
 
 .btn-create-event,
 #cancel-popup {
-    padding: 0.85rem 2.5rem;
-    border-radius: 0.6rem;
-    font-size: 1rem;
+    padding: 0 2.5rem;
+    border-radius:  0.6rem;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
     -webkit-appearance: none;
     appearance: none;
-    min-height: 48px;
-    min-width: 160px;
+    height: 46px; /* match figma - height */
+    min-width: 167px; /* match figma - width */
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-create-event {
@@ -626,7 +630,7 @@ body {
 }
 
 .btn-create-event:hover {
-    background: linear-gradient(90deg, #5a6ad1 0%, #6d3cc9 100%);
+    background: linear-gradient(90deg, #5A6AD1 0%, #6EC6E7 100%); /* match figma - hover gradient */
     transform: translateY(-2px);
     box-shadow: 0 8px 16px rgba(111, 123, 255, 0.3);
 }
