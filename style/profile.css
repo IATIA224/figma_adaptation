@@ -112,3 +112,145 @@ html, body {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+/* Tablet and below */
+@media (max-width: 900px) {
+  .cards-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .panel {
+    width: 98%;
+    min-width: 0;
+    padding: 18px;
+    min-height: 220px;
+  }
+  .nav-inner {
+    padding: 0 6px;
+  }
+  .site-nav {
+    padding: 10px 8px;
+    border-radius: 0 0 14px 14px;
+  }
+  .page-bg {
+    padding: 24px 8px;
+  }
+  .card {
+    padding: 32px 10px 24px;
+    border-radius: 22px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .site-nav {
+    padding: 8px 2vw;
+    border-radius: 0 0 10px 10px;
+  }
+  .brand-logo {
+    width: 28px;
+    height: 28px;
+  }
+  .brand,
+  .brand span,
+  .brand .brand-title {
+    font-size: 15px !important;
+  }
+  .nav-links {
+    gap: 12px;
+  }
+  .nav-links a {
+    font-size: 13px;
+    padding: 4px 0;
+  }
+  .nav-actions .signup,
+  .nav-actions .login {
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+  .page-bg {
+    padding: 12px 2vw;
+    min-height: unset;
+  }
+  .card {
+    width: 100%;
+    max-width: 99vw;
+    padding: 18px 4vw 18px;
+    border-radius: 14px;
+    margin-top: 0.5rem;
+  }
+  .avatar {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 12px;
+  }
+  .title {
+    font-size: 16px;
+    margin: 4px 0 6px;
+  }
+  .subtitle {
+    font-size: 12px;
+    margin-bottom: 18px;
+  }
+  .panel {
+    width: 100%;
+    padding: 10px 4vw;
+    border-radius: 10px;
+    min-height: 120px;
+  }
+  .panel-head {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .panel-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .panel h2 {
+    font-size: 16px;
+  }
+  .personal-form label {
+    font-size: 12px;
+    margin: 10px 0 4px;
+  }
+  .personal-form input {
+    font-size: 13px;
+    padding: 8px 8px;
+  }
+  .interest-list label {
+    font-size: 13px;
+    gap: 8px;
+  }
+  .interest-list input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+  }
+  .save-btn {
+    padding: 8px 16px;
+    border-radius: 14px;
+    font-size: 14px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 400px) {
+  .card {
+    padding: 10px 2vw 10px;
+    border-radius: 8px;
+  }
+  .panel {
+    padding: 6px 2vw;
+    border-radius: 6px;
+  }
+  .avatar {
+    width: 48px;
+    height: 48px;
+  }
+  .title {
+    font-size: 13px;
+  }
+  .panel h2 {
+    font-size: 13px;
+  }
+}
