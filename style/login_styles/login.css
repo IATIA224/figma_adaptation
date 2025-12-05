@@ -146,8 +146,8 @@ body {
     width: clamp(140px, 60%, 171px); /* responsive width that scales */ /* matched figma */
     max-width: 95%;
     height: 37px;
-    font-family: poppins, sans-serif    ;
-    background: linear-gradient(90deg, #5B8CFF 0%, #7B4DDB 99%);
+    font-family: poppins, sans-serif;
+    background: linear-gradient(90deg, #3C5EAC 0%, #510FDA 100%);
     color: #FFFFFF;
     border: none;
     border-radius: 10px;
