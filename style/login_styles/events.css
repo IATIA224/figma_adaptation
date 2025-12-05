@@ -189,29 +189,7 @@ body::-webkit-scrollbar {
 }
 
 /* Phones Landscape & Small Tablets (≤ 768px) */
-@media (max-width: 768px) {
-    .events-card {
-        width: 94vw;
-        padding: 32px 24px;
-    }
 
-    .events-tabs {
-        width: 100%;
-        padding: 4px;
-    }
-
-    .tab {
-        font-size: 14px;
-    }
-
-    .event-row {
-        padding: 16px 18px;
-    }
-
-    .event-title {
-        font-size: 16px;
-    }
-}
 
 /* Phones Portrait (≤ 480px) */
 @media (max-width: 480px) {
