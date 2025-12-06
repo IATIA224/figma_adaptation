@@ -127,7 +127,7 @@
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(81,15,218,0.12);
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 400; /* match figma - not bold */
   width: 84px; /* match figma - width */
   height: 41px; /* match figma - height */
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.3s ease;
@@ -286,7 +286,7 @@
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(81,15,218,0.12);
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 400; /* match figma - not bold */
   width: 84px; /* match figma - width */
   height: 41px; /* match figma - height */
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.3s ease;
