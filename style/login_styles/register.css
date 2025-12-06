@@ -85,7 +85,7 @@ body {
 }
 
 .welcome-text {
-    font-size: clamp(1rem, 3vw, 1.25rem);
+    font-size: 17px;
     font-weight: 700;
     color: #1F2937;
     text-align: center;
@@ -151,7 +151,7 @@ body {
     max-width: 171px;
     height: 44px;
     background: linear-gradient(90deg, #3C5EAC 0%, #510FDA 100%);
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     border: none;
     border-radius: 10px;
     font-size: 1rem;
